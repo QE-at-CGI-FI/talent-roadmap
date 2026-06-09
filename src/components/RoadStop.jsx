@@ -1,0 +1,98 @@
+import { useState } from 'react'
+import { useSortable } from '@dnd-kit/sortable'
+import { CSS } from '@dnd-kit/utilities'
+import SightseeingBadge from './SightseeingBadge'
+import AddSightseeingModal from './AddSightseeingModal'
+import './RoadStop.css'
+
+function StopCard({ stop, onEdit, onDelete }) {
+  return (
+    <div className="stop-card" style={{ borderLeftColor: stop.color }}>
+      <div className="stop-card-header">
+        <h2 className="stop-title">{stop.title}</h2>
+        <div className="stop-actions">
+          <button className="icon-btn" onClick={onEdit} title="Edit">✎</button>
+          <button className="icon-btn danger" onClick={onDelete} title="Delete">✕</button>
+        </div>
+      </div>
+      <p className="stop-summary">{stop.summary}</p>
+    </div>
+  )
+}
+
+function SightseeingsPanel({ stop, onSightseeingClick, onDeleteSightseeing, onAddSightseeing }) {
+  const [showAddSS, setShowAddSS] = useState(false)
+  return (
+    <div className="sightseeings-list">
+      {stop.sightseeings.map((ss) => (
+        <SightseeingBadge
+          key={ss.id}
+          ss={ss}
+          color={stop.color}
+          onClick={() => onSightseeingClick(ss)}
+          onDelete={() => onDeleteSightseeing(ss.id)}
+        />
+      ))}
+      <button className="add-ss-btn" onClick={() => setShowAddSS(true)}>
+        + Sightseeing
+      </button>
+      {showAddSS && (
+        <AddSightseeingModal
+          onSave={(ss) => { onAddSightseeing(ss); setShowAddSS(false) }}
+          onClose={() => setShowAddSS(false)}
+        />
+      )}
+    </div>
+  )
+}
+
+export default function RoadStop({
+  stop,
+  index,
+  onSightseeingClick,
+  onEdit,
+  onDelete,
+  onAddSightseeing,
+  onDeleteSightseeing,
+}) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: stop.id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.4 : 1,
+    zIndex: isDragging ? 100 : 1,
+  }
+
+  // Even: card left, sightseeings right
+  // Odd:  sightseeings left, card right
+  const isEven = index % 2 === 0
+
+  const leftContent = isEven
+    ? <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
+    : <SightseeingsPanel stop={stop} onSightseeingClick={onSightseeingClick} onDeleteSightseeing={onDeleteSightseeing} onAddSightseeing={onAddSightseeing} />
+
+  const rightContent = isEven
+    ? <SightseeingsPanel stop={stop} onSightseeingClick={onSightseeingClick} onDeleteSightseeing={onDeleteSightseeing} onAddSightseeing={onAddSightseeing} />
+    : <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
+
+  return (
+    <div ref={setNodeRef} style={style} className="road-stop-row">
+      <div className="stop-panel">{leftContent}</div>
+
+      <div className="stop-center">
+        <div
+          className="stop-node"
+          style={{ background: stop.color, boxShadow: `0 0 20px ${stop.color}55` }}
+          {...attributes}
+          {...listeners}
+          title="Drag to reorder"
+        >
+          <span className="stop-number">{index + 1}</span>
+        </div>
+      </div>
+
+      <div className="stop-panel">{rightContent}</div>
+    </div>
+  )
+}

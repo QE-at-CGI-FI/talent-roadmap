@@ -1,0 +1,129 @@
+.road-stop-row {
+  display: grid;
+  grid-template-columns: 1fr 80px 1fr;
+  align-items: start;
+  gap: 0;
+  margin-bottom: 3rem;
+  position: relative;
+}
+
+.stop-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.stop-node {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: grab;
+  user-select: none;
+  transition: transform 0.15s;
+  flex-shrink: 0;
+}
+
+.stop-node:hover {
+  transform: scale(1.1);
+}
+
+.stop-node:active {
+  cursor: grabbing;
+}
+
+.stop-number {
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: white;
+}
+
+.stop-panel {
+  padding: 0.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+}
+
+.stop-card {
+  background: #1a1d2e;
+  border: 1px solid #2d3154;
+  border-left: 3px solid;
+  border-radius: 10px;
+  padding: 1rem 1.2rem;
+}
+
+.stop-card-header {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 0.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.stop-title {
+  font-size: 1rem;
+  font-weight: 700;
+  color: #e2e8f0;
+}
+
+.stop-summary {
+  font-size: 0.82rem;
+  color: #64748b;
+  line-height: 1.5;
+}
+
+.stop-actions {
+  display: flex;
+  gap: 0.25rem;
+  flex-shrink: 0;
+}
+
+.icon-btn {
+  background: transparent;
+  border: none;
+  color: #64748b;
+  cursor: pointer;
+  padding: 0.2rem 0.4rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  transition: color 0.15s, background 0.15s;
+}
+
+.icon-btn:hover {
+  color: #a78bfa;
+  background: rgba(167, 139, 250, 0.1);
+}
+
+.icon-btn.danger:hover {
+  color: #f87171;
+  background: rgba(248, 113, 113, 0.1);
+}
+
+.sightseeings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.add-ss-btn {
+  background: transparent;
+  border: 1px dashed #3d4263;
+  color: #64748b;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.78rem;
+  cursor: pointer;
+  text-align: left;
+  transition: border-color 0.15s, color 0.15s;
+  margin-top: 0.25rem;
+}
+
+.add-ss-btn:hover {
+  border-color: #6366f1;
+  color: #a78bfa;
+}
