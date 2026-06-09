@@ -105,6 +105,12 @@ export default function App() {
     )
   }
 
+  function reorderSightseeings(stopId, newSightseeings) {
+    setStops((prev) =>
+      prev.map((s) => (s.id === stopId ? { ...s, sightseeings: newSightseeings } : s))
+    )
+  }
+
   function deleteSightseeing(stopId, ssId) {
     setStops((prev) =>
       prev.map((s) =>
@@ -177,6 +183,7 @@ export default function App() {
                   onAddSightseeing={(ss) => addSightseeing(stop.id, ss)}
                   onEditSightseeing={(ss) => updateSightseeing(stop.id, ss)}
                   onDeleteSightseeing={(ssId) => deleteSightseeing(stop.id, ssId)}
+                  onReorderSightseeings={(ordered) => reorderSightseeings(stop.id, ordered)}
                 />
               ))}
             </SortableContext>

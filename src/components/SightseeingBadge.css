@@ -26,6 +26,21 @@
 
 .ss-badge:hover .ss-delete { opacity: 1; }
 
+.ss-grip {
+  color: var(--text-dim);
+  font-size: 0.75rem;
+  cursor: grab;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+  user-select: none;
+  line-height: 1;
+  margin-top: 1px;
+}
+
+.ss-badge:hover .ss-grip { opacity: 1; }
+.ss-grip:active { cursor: grabbing; }
+
 .ss-dot {
   width: 7px;
   height: 7px;

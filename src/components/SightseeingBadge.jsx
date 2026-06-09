@@ -2,10 +2,11 @@ import './SightseeingBadge.css'
 
 const EXERCISE_COLOR = '#FFD600'
 
-export default function SightseeingBadge({ ss, color, onClick, onEdit, onDelete }) {
+export default function SightseeingBadge({ ss, color, onClick, onEdit, onDelete, dragHandleProps }) {
   const dotColor = ss.exercise ? EXERCISE_COLOR : color
   return (
     <div className={`ss-badge${ss.exercise ? ' ss-exercise' : ''}`} style={{ '--ss-color': dotColor }} onClick={onClick}>
+      <span className="ss-grip" {...dragHandleProps} onClick={(e) => e.stopPropagation()} title="Drag to reorder">⠿</span>
       <span className="ss-dot" style={{ background: dotColor }} />
       <div className="ss-text">
         <span className="ss-title">{ss.title}</span>

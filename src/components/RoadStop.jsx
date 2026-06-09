@@ -1,5 +1,17 @@
 import { useState } from 'react'
-import { useSortable } from '@dnd-kit/sortable'
+import {
+  DndContext,
+  closestCenter,
+  PointerSensor,
+  useSensor,
+  useSensors,
+} from '@dnd-kit/core'
+import {
+  SortableContext,
+  verticalListSortingStrategy,
+  arrayMove,
+  useSortable,
+} from '@dnd-kit/sortable'
 import { CSS } from '@dnd-kit/utilities'
 import SightseeingBadge from './SightseeingBadge'
 import AddSightseeingModal from './AddSightseeingModal'
@@ -20,25 +32,74 @@ function StopCard({ stop, onEdit, onDelete }) {
   )
 }
 
-function SightseeingsPanel({ stop, onSightseeingClick, onEditSightseeing, onDeleteSightseeing, onAddSightseeing }) {
+function SortableSightseeingBadge({ ss, color, onClick, onEdit, onDelete }) {
+  const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: ss.id })
+
+  const style = {
+    transform: CSS.Transform.toString(transform),
+    transition,
+    opacity: isDragging ? 0.4 : 1,
+    position: 'relative',
+    zIndex: isDragging ? 10 : 'auto',
+  }
+
+  return (
+    <div ref={setNodeRef} style={style}>
+      <SightseeingBadge
+        ss={ss}
+        color={color}
+        onClick={onClick}
+        onEdit={onEdit}
+        onDelete={onDelete}
+        dragHandleProps={{ ...attributes, ...listeners }}
+      />
+    </div>
+  )
+}
+
+function SightseeingsPanel({
+  stop,
+  onSightseeingClick,
+  onEditSightseeing,
+  onDeleteSightseeing,
+  onAddSightseeing,
+  onReorderSightseeings,
+}) {
   const [showAddSS, setShowAddSS] = useState(false)
   const [editingSS, setEditingSS] = useState(null)
 
+  const sensors = useSensors(
+    useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
+  )
+
+  function handleDragEnd(event) {
+    const { active, over } = event
+    if (over && active.id !== over.id) {
+      const oldIndex = stop.sightseeings.findIndex((ss) => ss.id === active.id)
+      const newIndex = stop.sightseeings.findIndex((ss) => ss.id === over.id)
+      onReorderSightseeings(arrayMove(stop.sightseeings, oldIndex, newIndex))
+    }
+  }
+
   return (
-    <div className="sightseeings-list">
-      {stop.sightseeings.map((ss) => (
-        <SightseeingBadge
-          key={ss.id}
-          ss={ss}
-          color={stop.color}
-          onClick={() => onSightseeingClick(ss)}
-          onEdit={() => setEditingSS(ss)}
-          onDelete={() => onDeleteSightseeing(ss.id)}
-        />
-      ))}
-      <button className="add-ss-btn" onClick={() => setShowAddSS(true)}>
-        + Sightseeing
-      </button>
+    <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
+      <SortableContext items={stop.sightseeings.map((ss) => ss.id)} strategy={verticalListSortingStrategy}>
+        <div className="sightseeings-list">
+          {stop.sightseeings.map((ss) => (
+            <SortableSightseeingBadge
+              key={ss.id}
+              ss={ss}
+              color={stop.color}
+              onClick={() => onSightseeingClick(ss)}
+              onEdit={() => setEditingSS(ss)}
+              onDelete={() => onDeleteSightseeing(ss.id)}
+            />
+          ))}
+          <button className="add-ss-btn" onClick={() => setShowAddSS(true)}>
+            + Sightseeing
+          </button>
+        </div>
+      </SortableContext>
 
       {showAddSS && (
         <AddSightseeingModal
@@ -53,7 +114,7 @@ function SightseeingsPanel({ stop, onSightseeingClick, onEditSightseeing, onDele
           onClose={() => setEditingSS(null)}
         />
       )}
-    </div>
+    </DndContext>
   )
 }
 
@@ -67,6 +128,7 @@ export default function RoadStop({
   onAddSightseeing,
   onEditSightseeing,
   onDeleteSightseeing,
+  onReorderSightseeings,
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: stop.id })
 
@@ -77,8 +139,6 @@ export default function RoadStop({
     zIndex: isDragging ? 100 : 1,
   }
 
-  // Even: node left-of-center (2fr | node | 3fr), card left, sightseeings right
-  // Odd:  node right-of-center (3fr | node | 2fr), sightseeings left, card right
   const isEven = index % 2 === 0
 
   const ssPanel = (
@@ -88,6 +148,7 @@ export default function RoadStop({
       onEditSightseeing={onEditSightseeing}
       onDeleteSightseeing={onDeleteSightseeing}
       onAddSightseeing={onAddSightseeing}
+      onReorderSightseeings={onReorderSightseeings}
     />
   )
 
