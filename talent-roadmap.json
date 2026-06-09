@@ -143,6 +143,14 @@
         "details": "- from low code tools to git first way of working\n- from reporting to fixing\n- from reviewing requirements through transforming to test cases to active contributions in context engineering\n- from functional to visual and parafunctional\n- from trustworthy specs to generated specs with need of alignment\n- from separating test design and automation to combining them into continuous test automation\n- from verifying against specs to verifying against alignment for resultsful testing (seeing problems that needs seeing)\n- from individual contributor flows to team collaboration",
         "exercise": false,
         "id": "ss-1781019114144"
+      },
+      {
+        "title": "Developers vs. knowledge workers",
+        "summary": "Accepting different constraints",
+        "details": "- Showing developer box contents",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781024692188"
       }
     ]
   },
@@ -438,6 +446,14 @@
         "summary": "Concise plans, and working with backlogs for testing.",
         "details": "- One-page test strategy: what, why, scope, risks, approach — nothing more\n- Working with backlogs: test tasks as user stories with acceptance criteria\n- Just-enough planning: enough to start, flexible enough to adapt as you learn\n- Risk registers as living test plans: update them as the system changes\n- Timeboxed planning: how much plan is proportionate to how much work\n- Signals and levers: identifying what you can actually change vs. what you report on",
         "id": "ss-1781017042500"
+      },
+      {
+        "title": "Mandate levels",
+        "summary": "Modeling mandate levels",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781024620019"
       }
     ]
   },
