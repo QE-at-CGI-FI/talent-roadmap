@@ -598,6 +598,14 @@
         "id": "ss-1781016298662"
       },
       {
+        "title": "Key MCPs: Playwright, Rovo, Figma",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781023496550"
+      },
+      {
         "title": "Diagrams: Mermaid",
         "summary": "Drawing pictures that are cheaper to read.",
         "details": "- Mermaid diagrams\n- Archimate\n- Generating documentation from code",
