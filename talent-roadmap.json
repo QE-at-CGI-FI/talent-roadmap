@@ -18,6 +18,13 @@
         "id": "ss-1781013647558"
       },
       {
+        "title": "Simplified tasks of testing",
+        "summary": "When we stop talking about artifacts...",
+        "details": "- learning the domain/application fast towards thorough\n- doing testing, designing experiments\n- learning for purposes of doing testing (from plans and from work done)\n- enabling others to learn through testing\n- setting up enablers for testing (env, data, tools)\n- targeting testing (strategy, coverage)\n- monitoring across engineering environments\n- estimation of necessary talent availability\n- agreeing on logistics",
+        "exercise": false,
+        "id": "ss-1781019035288"
+      },
+      {
         "title": "Value and waste",
         "summary": "Forms of lean waste in testing",
         "details": "- Forms of lean waste, and how the way we organize for testing contributes\n- Forms of lean value, and how the way we collaborate enables it",
@@ -70,34 +77,6 @@
     ]
   },
   {
-    "title": "Coverage",
-    "summary": "It's more than risks, requirements or code.",
-    "id": "stop-1781017610667",
-    "sightseeings": [
-      {
-        "title": "Risks, requirements and code",
-        "summary": "The foundational coverage.",
-        "details": "",
-        "exercise": false,
-        "id": "ss-1781017628243"
-      },
-      {
-        "title": "Practice coverage",
-        "summary": "Your adherence to agreements",
-        "details": "",
-        "exercise": false,
-        "id": "ss-1781017659453"
-      },
-      {
-        "title": "Coverage for the AI era",
-        "summary": "Code reality and telemetry.",
-        "details": "",
-        "exercise": false,
-        "id": "ss-1781017725630"
-      }
-    ]
-  },
-  {
     "title": "Task expansion with AI",
     "summary": "",
     "color": "#B0003A",
@@ -126,6 +105,41 @@
         "summary": "A PR with tests wins over a report.",
         "details": "- Pairing on a fix (with humans/agents) and delivering PRs with tests and fixes as reports\n- Modern change advisory boards teach rules to distribute decisions",
         "id": "ss-1781014703036"
+      },
+      {
+        "title": "Task expansion",
+        "summary": "We should probably discuss all these.",
+        "details": "- from low code tools to git first way of working\n- from reporting to fixing\n- from reviewing requirements through transforming to test cases to active contributions in context engineering\n- from functional to visual and parafunctional\n- from trustworthy specs to generated specs with need of alignment\n- from separating test design and automation to combining them into continuous test automation\n- from verifying against specs to verifying against alignment for resultsful testing (seeing problems that needs seeing)\n- from individual contributor flows to team collaboration",
+        "exercise": false,
+        "id": "ss-1781019114144"
+      }
+    ]
+  },
+  {
+    "title": "Coverage",
+    "summary": "It's more than risks, requirements or code.",
+    "id": "stop-1781017610667",
+    "sightseeings": [
+      {
+        "title": "Risks, requirements and code",
+        "summary": "The foundational coverage.",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017628243"
+      },
+      {
+        "title": "Quality practices agreement coverage",
+        "summary": "Your adherence to agreements",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017659453"
+      },
+      {
+        "title": "Coverage for the AI era",
+        "summary": "Code reality and telemetry.",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017725630"
       }
     ]
   },
@@ -262,6 +276,14 @@
         "details": "",
         "exercise": true,
         "id": "ss-1781018448999"
+      },
+      {
+        "title": "Agent-ready Test Professional",
+        "summary": "CGI certifications for the modern age",
+        "details": "Hire with 20 agents!",
+        "exercise": false,
+        "starred": true,
+        "id": "ss-1781020040746"
       }
     ]
   },
@@ -384,6 +406,48 @@
     ]
   },
   {
+    "title": "Compressed roles",
+    "summary": "Roles for the AI era",
+    "id": "stop-1781019183583",
+    "sightseeings": [
+      {
+        "title": "Intent lead",
+        "summary": "Decides what must be learned, protected, proven, or observed.",
+        "details": "- Define quality outcomes, not just features\n- Align acceptance criteria with measurable business value\n- Prioritize risks: regulatory, security, reputation, usability, AI hallucination\n- Define “done” beyond functionality: reliable, explainable, observable, resilient\n- Drive production quality KPIs: defect escape rate, customer friction, AI response accuracy, trust score, SLA/SLO adherence",
+        "exercise": false,
+        "id": "ss-1781019191094"
+      },
+      {
+        "title": "Value engineer",
+        "summary": "Continuously experiments to discover whether the system creates value safely and effectively.",
+        "details": "- Create continuous evaluation frameworks\n- Validate: correctness, usefulness, consistency, personalization quality\n- Run: A/B experiments, telemetry analysis. behavior-driven evaluations\n- Establish “golden datasets”\n- Monitor production drift: model drift. response variance, performance degradation\n- Quantify business impact: reduced effort, accuracy improvements, faster decisions",
+        "exercise": false,
+        "id": "ss-1781019197568"
+      },
+      {
+        "title": "Context engineer",
+        "summary": "Creates the shared understanding that makes meaningful testing possible.",
+        "details": "- Engineer high-quality prompts and grounding data\n- Create testable AI contexts\n- Validate: prompt consistency, retrieval quality, context relevance, memory/window limitations\n- Design synthetic and edge-case datasets\n- Prevent: context poisoning, prompt injection, stale knowledge\n- Build traceability between: requirements, prompts, outputs, evaluations",
+        "exercise": false,
+        "id": "ss-1781019203118"
+      },
+      {
+        "title": "Alignment engineer",
+        "summary": "Ensures the system stays coherent, trustworthy, and directionally correct.",
+        "details": "- Verify AI behavior aligns with: policies, regulations, ethical constraints, brand standards\n- Conduct adversarial testing: jailbreak attempts, prompt injection, malicious inputs\n- Validate: fairness, explainability, auditability, transparency\n- Define trust controls: human-in-the-loop, approval workflows, risk thresholds\n- Ensure AI observability and traceability",
+        "exercise": false,
+        "id": "ss-1781019210696"
+      },
+      {
+        "title": "Experience engineer",
+        "summary": "Makes system quality observable, understandable, and actionable for humans.",
+        "details": "- Validate conversational quality\n- Ensure: clarity, cognitive simplicity, accessibility, responsiveness\n- Test multi-turn interactions\n- Validate confidence indicators and fallback behavior\n- Assess human trust and adoption\n- Ensure graceful degradation when AI confidence is low",
+        "exercise": false,
+        "id": "ss-1781019222972"
+      }
+    ]
+  },
+  {
     "title": "Tools of trade",
     "summary": "The minimized set",
     "color": "#E8001C",
@@ -431,6 +495,14 @@
         "details": "- Memory\n- Compression before LLMs",
         "exercise": false,
         "id": "ss-1781017949237"
+      },
+      {
+        "title": "Certified Modern Testing Talent",
+        "summary": "CGI certifications for the modern age",
+        "details": "",
+        "exercise": false,
+        "starred": true,
+        "id": "ss-1781020062497"
       }
     ]
   }
