@@ -69,6 +69,12 @@
   gap: 1.5rem;
 }
 
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
 .btn-primary {
   background: linear-gradient(135deg, #6366f1, #8b5cf6);
   color: white;

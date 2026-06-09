@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import {
   DndContext,
   closestCenter,
@@ -17,11 +17,26 @@ import Overlay from './components/Overlay'
 import AddStopModal from './components/AddStopModal'
 import './App.css'
 
+const STORAGE_KEY = 'talent-roadmap-stops'
+
+function loadStops() {
+  try {
+    const saved = localStorage.getItem(STORAGE_KEY)
+    if (saved) return JSON.parse(saved)
+  } catch {}
+  return initialStops
+}
+
 export default function App() {
-  const [stops, setStops] = useState(initialStops)
+  const [stops, setStops] = useState(loadStops)
   const [overlay, setOverlay] = useState(null) // { stop, sightseeing }
   const [showAddStop, setShowAddStop] = useState(false)
   const [editingStop, setEditingStop] = useState(null)
+  const importRef = useRef(null)
+
+  useEffect(() => {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(stops))
+  }, [stops])
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
@@ -62,6 +77,30 @@ export default function App() {
     )
   }
 
+  function handleExport() {
+    const blob = new Blob([JSON.stringify(stops, null, 2)], { type: 'application/json' })
+    const url = URL.createObjectURL(blob)
+    const a = document.createElement('a')
+    a.href = url
+    a.download = 'talent-roadmap.json'
+    a.click()
+    URL.revokeObjectURL(url)
+  }
+
+  function handleImport(e) {
+    const file = e.target.files?.[0]
+    if (!file) return
+    const reader = new FileReader()
+    reader.onload = (ev) => {
+      try {
+        const data = JSON.parse(ev.target.result)
+        if (Array.isArray(data)) setStops(data)
+      } catch {}
+    }
+    reader.readAsText(file)
+    e.target.value = ''
+  }
+
   function deleteSightseeing(stopId, ssId) {
     setStops((prev) =>
       prev.map((s) =>
@@ -80,9 +119,12 @@ export default function App() {
             <h1 className="app-title">Modern Testing Talent Roadmap</h1>
             <p className="app-subtitle">A visual guide to the skills and stops on the journey</p>
           </div>
-          <button className="btn-primary" onClick={() => setShowAddStop(true)}>
-            + Add Stop
-          </button>
+          <div className="header-actions">
+            <input ref={importRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
+            <button className="btn-secondary" onClick={() => importRef.current.click()}>Import</button>
+            <button className="btn-secondary" onClick={handleExport}>Export</button>
+            <button className="btn-primary" onClick={() => setShowAddStop(true)}>+ Add Stop</button>
+          </div>
         </div>
       </header>
 
