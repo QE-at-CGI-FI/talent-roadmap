@@ -19,6 +19,11 @@ import AddStopModal from './components/AddStopModal'
 import AddSightseeingModal from './components/AddSightseeingModal'
 import './App.css'
 
+const COLORS = [
+  '#E8001C', '#6B2FA0', '#B0003A', '#8A1AC8',
+  '#C0003A', '#5A1080', '#FF2040', '#9B3DD0',
+]
+
 const STORAGE_KEY = 'talent-roadmap-stops'
 
 function loadStops() {
@@ -64,7 +69,10 @@ export default function App() {
   }
 
   function addStop(stop) {
-    setStops((prev) => [...prev, { ...stop, id: `stop-${Date.now()}`, sightseeings: [] }])
+    setStops((prev) => [
+      ...prev,
+      { ...stop, id: `stop-${Date.now()}`, color: COLORS[prev.length % COLORS.length], sightseeings: [] },
+    ])
     setShowAddStop(false)
   }
 
