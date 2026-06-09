@@ -1,10 +1,12 @@
 .road-stop-row {
   display: grid;
-  grid-template-columns: 1fr 80px 1fr;
   align-items: start;
   margin-bottom: 3rem;
   position: relative;
 }
+
+.road-stop-row.is-even { grid-template-columns: 2fr 80px 3fr; }
+.road-stop-row.is-odd  { grid-template-columns: 3fr 80px 2fr; }
 
 .stop-center {
   display: flex;

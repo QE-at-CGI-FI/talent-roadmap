@@ -46,7 +46,6 @@ function SightseeingsPanel({ stop, onSightseeingClick, onEditSightseeing, onDele
           onClose={() => setShowAddSS(false)}
         />
       )}
-
       {editingSS && (
         <AddSightseeingModal
           existing={editingSS}
@@ -61,6 +60,7 @@ function SightseeingsPanel({ stop, onSightseeingClick, onEditSightseeing, onDele
 export default function RoadStop({
   stop,
   index,
+  nodeRef,
   onSightseeingClick,
   onEdit,
   onDelete,
@@ -77,6 +77,8 @@ export default function RoadStop({
     zIndex: isDragging ? 100 : 1,
   }
 
+  // Even: node left-of-center (2fr | node | 3fr), card left, sightseeings right
+  // Odd:  node right-of-center (3fr | node | 2fr), sightseeings left, card right
   const isEven = index % 2 === 0
 
   const ssPanel = (
@@ -92,11 +94,16 @@ export default function RoadStop({
   const stopCard = <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
 
   return (
-    <div ref={setNodeRef} style={style} className="road-stop-row">
+    <div
+      ref={setNodeRef}
+      style={style}
+      className={`road-stop-row ${isEven ? 'is-even' : 'is-odd'}`}
+    >
       <div className="stop-panel">{isEven ? stopCard : ssPanel}</div>
 
       <div className="stop-center">
         <div
+          ref={nodeRef}
           className="stop-node"
           style={{ background: stop.color, boxShadow: `0 0 20px ${stop.color}55` }}
           {...attributes}

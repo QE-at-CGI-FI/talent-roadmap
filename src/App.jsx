@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react'
+import { useState, useEffect, useRef, createRef } from 'react'
 import {
   DndContext,
   closestCenter,
@@ -13,6 +13,7 @@ import {
 } from '@dnd-kit/sortable'
 import { initialStops } from './data'
 import RoadStop from './components/RoadStop'
+import RoadPath from './components/RoadPath'
 import Overlay from './components/Overlay'
 import AddStopModal from './components/AddStopModal'
 import AddSightseeingModal from './components/AddSightseeingModal'
@@ -30,11 +31,18 @@ function loadStops() {
 
 export default function App() {
   const [stops, setStops] = useState(loadStops)
-  const [overlay, setOverlay] = useState(null) // { stop, sightseeing }
-  const [editingSSFromOverlay, setEditingSSFromOverlay] = useState(null) // { stopId, ss }
+  const [overlay, setOverlay] = useState(null)
+  const [editingSSFromOverlay, setEditingSSFromOverlay] = useState(null)
   const [showAddStop, setShowAddStop] = useState(false)
   const [editingStop, setEditingStop] = useState(null)
   const importRef = useRef(null)
+  const trackRef = useRef(null)
+  const nodeRefsRef = useRef([])
+
+  // Keep nodeRefs array in sync with stop count, preserving existing refs
+  if (nodeRefsRef.current.length !== stops.length) {
+    nodeRefsRef.current = stops.map((_, i) => nodeRefsRef.current[i] ?? createRef())
+  }
 
   useEffect(() => {
     localStorage.setItem(STORAGE_KEY, JSON.stringify(stops))
@@ -79,6 +87,26 @@ export default function App() {
     )
   }
 
+  function updateSightseeing(stopId, updated) {
+    setStops((prev) =>
+      prev.map((s) =>
+        s.id === stopId
+          ? { ...s, sightseeings: s.sightseeings.map((ss) => (ss.id === updated.id ? updated : ss)) }
+          : s
+      )
+    )
+  }
+
+  function deleteSightseeing(stopId, ssId) {
+    setStops((prev) =>
+      prev.map((s) =>
+        s.id === stopId
+          ? { ...s, sightseeings: s.sightseeings.filter((ss) => ss.id !== ssId) }
+          : s
+      )
+    )
+  }
+
   function handleExport() {
     const blob = new Blob([JSON.stringify(stops, null, 2)], { type: 'application/json' })
     const url = URL.createObjectURL(blob)
@@ -103,26 +131,6 @@ export default function App() {
     e.target.value = ''
   }
 
-  function updateSightseeing(stopId, updated) {
-    setStops((prev) =>
-      prev.map((s) =>
-        s.id === stopId
-          ? { ...s, sightseeings: s.sightseeings.map((ss) => ss.id === updated.id ? updated : ss) }
-          : s
-      )
-    )
-  }
-
-  function deleteSightseeing(stopId, ssId) {
-    setStops((prev) =>
-      prev.map((s) =>
-        s.id === stopId
-          ? { ...s, sightseeings: s.sightseeings.filter((ss) => ss.id !== ssId) }
-          : s
-      )
-    )
-  }
-
   return (
     <div className="app">
       <header className="app-header">
@@ -145,8 +153,8 @@ export default function App() {
       </header>
 
       <main className="roadmap-container">
-        <div className="road-track">
-          <div className="road-line" />
+        <div className="road-track" ref={trackRef}>
+          <RoadPath nodeRefs={nodeRefsRef.current} trackRef={trackRef} />
           <DndContext sensors={sensors} collisionDetection={closestCenter} onDragEnd={handleDragEnd}>
             <SortableContext items={stops.map((s) => s.id)} strategy={verticalListSortingStrategy}>
               {stops.map((stop, index) => (
@@ -154,7 +162,7 @@ export default function App() {
                   key={stop.id}
                   stop={stop}
                   index={index}
-                  total={stops.length}
+                  nodeRef={nodeRefsRef.current[index]}
                   onSightseeingClick={(ss) => setOverlay({ stop, sightseeing: ss })}
                   onEdit={() => setEditingStop(stop)}
                   onDelete={() => deleteStop(stop.id)}

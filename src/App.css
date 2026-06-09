@@ -70,17 +70,6 @@
   position: relative;
 }
 
-.road-line {
-  position: absolute;
-  left: 50%;
-  top: 0;
-  bottom: 0;
-  width: 3px;
-  background: linear-gradient(to bottom, var(--cgi-red), var(--cgi-purple));
-  transform: translateX(-50%);
-  border-radius: 2px;
-  opacity: 0.4;
-}
 
 .empty-road {
   text-align: center;
