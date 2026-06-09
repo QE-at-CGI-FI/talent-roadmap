@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './Modal.css'
 
 const COLORS = [
@@ -26,7 +27,7 @@ export default function AddStopModal({ existing, onSave, onClose }) {
     )
   }
 
-  return (
+  return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
@@ -75,6 +76,7 @@ export default function AddStopModal({ existing, onSave, onClose }) {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

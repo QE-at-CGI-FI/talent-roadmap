@@ -1,4 +1,5 @@
 import { useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './Overlay.css'
 
 export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
@@ -8,7 +9,7 @@ export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
     return () => document.removeEventListener('keydown', onKey)
   }, [onClose])
 
-  return (
+  return createPortal(
     <div className="overlay-backdrop" onClick={onClose}>
       <div className="overlay-panel" onClick={(e) => e.stopPropagation()}>
         <div className="overlay-header" style={{ borderColor: stop.color }}>
@@ -41,6 +42,7 @@ export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
           </div>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

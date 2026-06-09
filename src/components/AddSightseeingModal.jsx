@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { createPortal } from 'react-dom'
 import './Modal.css'
 
 export default function AddSightseeingModal({ existing, onSave, onClose }) {
@@ -21,7 +22,7 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
     )
   }
 
-  return (
+  return createPortal(
     <div className="modal-backdrop" onClick={onClose}>
       <div className="modal-panel" onClick={(e) => e.stopPropagation()}>
         <div className="modal-header">
@@ -65,6 +66,7 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
           </div>
         </form>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }
