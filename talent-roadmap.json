@@ -78,7 +78,7 @@
   },
   {
     "title": "Task expansion with AI",
-    "summary": "",
+    "summary": "Ability to do things that you used to need a colleague for.",
     "color": "#B0003A",
     "id": "stop-1781014157552",
     "sightseeings": [
@@ -145,7 +145,7 @@
   },
   {
     "title": "Resultsful exploratory testing",
-    "summary": "",
+    "summary": "Information is what we do testing for.",
     "color": "#E8001C",
     "id": "stop-1781012563826",
     "sightseeings": [
@@ -167,7 +167,7 @@
   },
   {
     "title": "Intentional exploratory testing",
-    "summary": "",
+    "summary": "Experimenting with intent.",
     "color": "#6B2FA0",
     "id": "stop-1781011230329",
     "sightseeings": [
@@ -187,7 +187,7 @@
   },
   {
     "title": "Contemporary exploratory testing",
-    "summary": "",
+    "summary": "Things are different for exploratory testing.",
     "color": "#B0003A",
     "id": "stop-1781011251365",
     "sightseeings": [
@@ -209,7 +209,7 @@
   },
   {
     "title": "Artifact-centric AI for testing",
-    "summary": "",
+    "summary": "Evolving artifacts keep the work visible and allow for sharing",
     "color": "#8A1AC8",
     "id": "stop-1781011276080",
     "sightseeings": [
@@ -252,7 +252,7 @@
   },
   {
     "title": "Performance-centric AI for testing",
-    "summary": "",
+    "summary": "You don't know where the bugs are but you are systematic in finding out!",
     "color": "#C0003A",
     "id": "stop-1781011293181",
     "sightseeings": [
@@ -293,11 +293,20 @@
     "id": "stop-1781018289021",
     "sightseeings": [
       {
-        "title": "Vibe coding",
-        "summary": "",
+        "title": "Intent to build apps",
+        "summary": "Wish from the generator, does your wish bring about useful?",
         "details": "",
         "exercise": false,
-        "id": "ss-1781018363919"
+        "starred": false,
+        "id": "ss-1781020461006"
+      },
+      {
+        "title": "Vibe coding a UI with local storage hosted on pages",
+        "summary": "Experience of code with pipeline to app online",
+        "details": "- Security considerations when building apps",
+        "exercise": false,
+        "id": "ss-1781018363919",
+        "starred": false
       },
       {
         "title": "From vibe coding to AI native development",
@@ -310,7 +319,7 @@
   },
   {
     "title": "Architecture-awareness",
-    "summary": "",
+    "summary": "Modern testing must optimize and target.",
     "color": "#5A1080",
     "id": "stop-1781011487012",
     "sightseeings": [
