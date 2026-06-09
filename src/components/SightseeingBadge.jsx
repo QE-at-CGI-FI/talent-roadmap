@@ -1,9 +1,12 @@
 import './SightseeingBadge.css'
 
+const EXERCISE_COLOR = '#FFD600'
+
 export default function SightseeingBadge({ ss, color, onClick, onEdit, onDelete }) {
+  const dotColor = ss.exercise ? EXERCISE_COLOR : color
   return (
-    <div className="ss-badge" style={{ '--ss-color': color }} onClick={onClick}>
-      <span className="ss-dot" style={{ background: color }} />
+    <div className={`ss-badge${ss.exercise ? ' ss-exercise' : ''}`} style={{ '--ss-color': dotColor }} onClick={onClick}>
+      <span className="ss-dot" style={{ background: dotColor }} />
       <div className="ss-text">
         <span className="ss-title">{ss.title}</span>
         <span className="ss-summary">{ss.summary}</span>

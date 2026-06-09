@@ -15,6 +15,15 @@
   background: var(--bg-card);
 }
 
+.ss-exercise {
+  border-color: #4a3c00;
+  background: #1a1500;
+}
+
+.ss-exercise:hover {
+  background: #221c00;
+}
+
 .ss-badge:hover .ss-delete { opacity: 1; }
 
 .ss-dot {

@@ -6,6 +6,7 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
   const [title, setTitle] = useState(existing?.title ?? '')
   const [summary, setSummary] = useState(existing?.summary ?? '')
   const [details, setDetails] = useState(existing?.details ?? '')
+  const [exercise, setExercise] = useState(existing?.exercise ?? false)
 
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onClose() }
@@ -17,8 +18,8 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
     e.preventDefault()
     if (!title.trim()) return
     onSave(existing
-      ? { ...existing, title: title.trim(), summary: summary.trim(), details: details.trim() }
-      : { title: title.trim(), summary: summary.trim(), details: details.trim() }
+      ? { ...existing, title: title.trim(), summary: summary.trim(), details: details.trim(), exercise }
+      : { title: title.trim(), summary: summary.trim(), details: details.trim(), exercise }
     )
   }
 
@@ -57,6 +58,14 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
               placeholder="• Key point one&#10;• Key point two&#10;&#10;Paragraph text here"
               rows={6}
             />
+          </label>
+          <label className="exercise-label">
+            <input
+              type="checkbox"
+              checked={exercise}
+              onChange={(e) => setExercise(e.target.checked)}
+            />
+            <span>Has exercise <small style={{color:'var(--text-muted)'}}>— highlights in yellow</small></span>
           </label>
           <div className="modal-actions">
             <button type="button" className="btn-secondary" onClick={onClose}>Cancel</button>

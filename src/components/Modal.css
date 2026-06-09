@@ -123,6 +123,28 @@
 .color-swatch:hover { transform: scale(1.15); }
 .color-swatch.selected { border-color: white; transform: scale(1.15); }
 
+.exercise-label {
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.6rem;
+  cursor: pointer;
+}
+
+.exercise-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  accent-color: #FFD600;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.exercise-label span {
+  text-transform: none !important;
+  letter-spacing: 0 !important;
+  font-size: 0.875rem !important;
+  color: var(--text) !important;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;

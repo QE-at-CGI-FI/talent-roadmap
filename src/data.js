@@ -3,12 +3,12 @@ export const initialStops = [
     id: 'stop-1',
     title: 'Git-First Mindset',
     summary: 'Version control as the backbone of all work',
-    color: undefined,
     sightseeings: [
       {
         id: 'ss-1-1',
         title: 'Commits & PRs',
         summary: 'Atomic commits, meaningful messages, pull request etiquette',
+        exercise: true,
         details: `A git-first mindset starts with understanding commits as snapshots of intent, not just saves.\n\n• Write commits that tell a story — each one should answer "why"\n• Open pull requests as a communication tool, not just a merge mechanism\n• Review PRs as collaborative quality gates, not gatekeeping\n• Use draft PRs to share work-in-progress and gather early feedback`,
       },
       {
@@ -21,6 +21,7 @@ export const initialStops = [
         id: 'ss-1-3',
         title: 'Merge Strategies',
         summary: 'Merge commits, squash, rebase — choosing the right strategy',
+        exercise: true,
         details: `How you integrate changes shapes the history and the team's ability to understand evolution.\n\n• Merge commit: preserves full branch history, clear but can be noisy\n• Squash merge: collapses a branch into one clean commit on main\n• Rebase: rewrites commits on top of main — linear history, requires discipline\n• Understand fast-forward vs. three-way merges\n• Team conventions matter more than the "best" strategy`,
       },
     ],

@@ -17,7 +17,10 @@ export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
             <div className="overlay-breadcrumb" style={{ color: stop.color }}>
               {stop.title}
             </div>
-            <h2 className="overlay-title">{sightseeing.title}</h2>
+            <div className="overlay-title-row">
+              <h2 className="overlay-title">{sightseeing.title}</h2>
+              {sightseeing.exercise && <span className="exercise-tag">exercise</span>}
+            </div>
           </div>
           <div className="overlay-header-actions">
             <button className="overlay-edit-btn" onClick={onEdit} title="Edit">✎ Edit</button>

@@ -40,6 +40,24 @@
   margin-bottom: 0.25rem;
 }
 
+.overlay-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+
+.exercise-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #FFD600;
+  color: #1a1200;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
 .overlay-title {
   font-size: 1.15rem;
   font-weight: 700;
