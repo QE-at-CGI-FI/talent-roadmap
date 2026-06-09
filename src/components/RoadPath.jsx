@@ -1,7 +1,17 @@
 import { useEffect, useState } from 'react'
 
+function starPoints(cx, cy, outerR, innerR, n = 5) {
+  const pts = []
+  for (let i = 0; i < n * 2; i++) {
+    const angle = (i * Math.PI / n) - Math.PI / 2
+    const r = i % 2 === 0 ? outerR : innerR
+    pts.push(`${cx + r * Math.cos(angle)},${cy + r * Math.sin(angle)}`)
+  }
+  return pts.join(' ')
+}
+
 export default function RoadPath({ nodeRefs, trackRef }) {
-  const [pathData, setPathData] = useState('')
+  const [scene, setScene] = useState(null) // { d, endX, endY }
 
   useEffect(() => {
     if (!trackRef.current || nodeRefs.length === 0) return
@@ -15,7 +25,6 @@ export default function RoadPath({ nodeRefs, trackRef }) {
           x: r.left - trackRect.left + r.width / 2,
           top: r.top - trackRect.top,
           bottom: r.top - trackRect.top + r.height,
-          cy: r.top - trackRect.top + r.height / 2,
         }
       })
       .filter(Boolean)
@@ -28,18 +37,18 @@ export default function RoadPath({ nodeRefs, trackRef }) {
       const cur = points[i]
       const nxt = points[i + 1]
       const midY = (cur.bottom + nxt.top) / 2
-      // S-curve: both control points at the midpoint y, pulling toward each side
       d += ` C ${cur.x} ${midY}, ${nxt.x} ${midY}, ${nxt.x} ${nxt.top}`
       d += ` L ${nxt.x} ${nxt.bottom}`
     }
 
     const last = points[points.length - 1]
-    d += ` L ${last.x} ${trackRect.height}`
+    const endY = last.bottom + 28 // stop just above the star centre
+    d += ` L ${last.x} ${endY}`
 
-    setPathData(d)
+    setScene({ d, endX: last.x, endY: endY + 16 })
   })
 
-  if (!pathData) return null
+  if (!scene) return null
 
   return (
     <svg
@@ -51,8 +60,20 @@ export default function RoadPath({ nodeRefs, trackRef }) {
           <stop offset="0%" stopColor="#E8001C" stopOpacity="0.5" />
           <stop offset="100%" stopColor="#6B2FA0" stopOpacity="0.5" />
         </linearGradient>
+        <filter id="star-glow">
+          <feGaussianBlur stdDeviation="3" result="blur" />
+          <feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge>
+        </filter>
       </defs>
-      <path d={pathData} fill="none" stroke="url(#road-grad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+
+      <path d={scene.d} fill="none" stroke="url(#road-grad)" strokeWidth="3" strokeLinecap="round" strokeLinejoin="round" />
+
+      <polygon
+        points={starPoints(scene.endX, scene.endY, 16, 7)}
+        fill="#FFD700"
+        filter="url(#star-glow)"
+        opacity="0.95"
+      />
     </svg>
   )
 }
