@@ -77,7 +77,7 @@
       {
         "title": "Git hygiene: secrets, dependencies and gitignore",
         "summary": "Managing your environment",
-        "details": "",
+        "details": "- .gitignore templates for common languages and frameworks\n- Never commit secrets: API keys, passwords, tokens, .env files\n- Use pre-commit hooks (git-secrets, trufflehog) to catch secrets before they land\n- Dependency lock files: commit them, they pin your reproducible build\n- Reviewing staged changes before committing: git diff --staged\n- Rotating credentials immediately when they are accidentally committed",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022927444"
@@ -92,7 +92,7 @@
       {
         "title": "From work questions to specs and code to data in envs and secrets",
         "summary": "Allowances have limits",
-        "details": "",
+        "details": "- Work items and task descriptions: what you're allowed to access and share\n- Specifications and code: IP ownership, confidentiality, and client agreements\n- Data in environments: personal data, production data, client data under contract\n- Secrets in environment variables: who can see them, when they rotate\n- What leaves your laptop: knowing which tools send data to external services\n- AI tools and data governance: checking before pasting client code into a chatbot",
         "exercise": false,
         "starred": false,
         "id": "ss-1781021396214"
@@ -100,7 +100,7 @@
       {
         "title": "Data classification in practice with licenses",
         "summary": "Handing data over under a contract",
-        "details": "",
+        "details": "- Public, internal, confidential, restricted: how classification limits tooling choices\n- GDPR and data residency: where can test data live?\n- Anonymization and pseudonymization for using production-like test data\n- Software licenses: MIT, GPL, Apache, proprietary — what each allows\n- License compatibility when combining open source components\n- Reading a contract: what does 'you may use this for testing' actually mean",
         "exercise": false,
         "starred": false,
         "id": "ss-1781021445851"
@@ -154,21 +154,21 @@
       {
         "title": "Risks, requirements and code",
         "summary": "The foundational coverage.",
-        "details": "",
+        "details": "- Risk-based coverage: identify what can go wrong, test that first\n- Requirements-based coverage: every requirement traceable to at least one test\n- Code coverage: line, branch, path — what each metric does and doesn't tell you\n- The coverage illusion: 100% code coverage does not mean no bugs\n- Combining dimensions: covering risks that never appeared in requirements\n- Coverage gaps are explicit decisions, not failures to disclose",
         "exercise": false,
         "id": "ss-1781017628243"
       },
       {
         "title": "Quality practices agreement coverage",
         "summary": "Your adherence to agreements",
-        "details": "",
+        "details": "- Definition of done as a testable, agreed checklist\n- Team agreements on coding standards, review checklists, branching rules\n- Process coverage: did the team follow its own agreed practices?\n- Automated policy checks: linting, security scanning, license compliance in CI\n- Retrospective-driven improvement: agreements evolve as teams learn\n- Difference between covering the product and covering how the team works",
         "exercise": false,
         "id": "ss-1781017659453"
       },
       {
         "title": "Coverage for the AI era",
         "summary": "Code reality and telemetry.",
-        "details": "",
+        "details": "- Code reality coverage: what the code actually does vs. what specs describe\n- Telemetry-driven coverage: real user paths inform which tests matter\n- Model behavior coverage: edge cases, adversarial inputs, output drift\n- Prompt coverage: testing the space of inputs an AI system needs to handle\n- Shadow testing and canary releases as live coverage signals\n- Observability as continuous coverage running in production",
         "exercise": false,
         "id": "ss-1781017725630"
       }
@@ -190,7 +190,7 @@
       {
         "title": "Stop-the-line mentality",
         "summary": "Culture change for making bugs more worth attention",
-        "details": "",
+        "details": "- Andon cord: anyone can and should stop work when quality fails\n- The cost of not stopping: defects compound and become more expensive downstream\n- Psychological safety as a precondition — stopping the line cannot be punished\n- When to escalate vs. when to fix and move on\n- Low-friction, no-blame bug channels make bugs worth reporting\n- Blameless post-mortems: learning from escapes rather than assigning fault",
         "exercise": false,
         "id": "ss-1781018691244"
       }
@@ -247,14 +247,14 @@
       {
         "title": "Generating test ideas",
         "summary": "AI as external imagination",
-        "details": "",
+        "details": "- Prompt patterns for idea generation: persona, domain, risk angle\n- AI as external imagination to overcome tester blind spots\n- Mind map generation: AI as starting point, human as curator\n- Category coverage: functional, edge cases, negative, security, performance\n- Context injection: give AI the spec, get diverse test angles back\n- Iterating on ideas: steering for quality over quantity",
         "exercise": false,
         "id": "ss-1781017430169"
       },
       {
         "title": "Generating test cases",
         "summary": "If you really need to, better be efficient about it",
-        "details": "",
+        "details": "- From test ideas to concrete cases with steps and expected results\n- Structuring prompts for reproducible, specific test cases\n- Keeping humans in the loop: reviewing generated cases for domain relevance\n- Deduplication and coverage analysis of a generated set\n- Parameterization: generating data tables alongside test logic\n- When NOT to generate: cases requiring deep domain knowledge benefit from human design",
         "exercise": false,
         "id": "ss-1781017451679"
       },
@@ -275,7 +275,7 @@
       {
         "title": "Requirements-based testing",
         "summary": "Test the ATM",
-        "details": "",
+        "details": "- ATM exercise: derive a test set from ATM requirements\n- Identify: functional requirements, business rules, constraints\n- Derive: positive tests, negative tests, boundary and edge case tests\n- Map requirements to test cases for traceability\n- Find: missing requirements, ambiguous requirements, conflicting requirements\n- Deliver: a coverage outline with explicit gap analysis",
         "exercise": true,
         "id": "ss-1781018497531"
       }
@@ -290,21 +290,21 @@
       {
         "title": "Playwright and Vibium as eyes/hands on browser",
         "summary": "AI can act for you, like you would",
-        "details": "",
+        "details": "- Playwright as browser automation: navigation, clicks, form fills, assertions\n- Playwright MCP: giving AI agents real browser eyes and hands\n- Vibium: visual AI for screenshot comparison and UI layout verification\n- Combining programmatic and visual assertions for richer coverage\n- Recording and replaying user flows as a starting scaffold\n- Handling dynamic content: wait strategies and flakiness mitigation",
         "exercise": false,
         "id": "ss-1781018185155"
       },
       {
         "title": "CGI Test Intelligence Mesh",
         "summary": "Plugins of agents and skills for testing",
-        "details": "",
+        "details": "- The mesh concept: composable agents and skills for quality engineering\n- Plugins for test generation, risk analysis, and coverage reporting\n- Connecting tools: Playwright, Bruno, Jira, GitHub, monitoring systems\n- Custom skills for domain-specific testing tasks\n- Orchestrating mesh agents inside pipelines for autonomous quality gates\n- Extending the mesh: contributing new skills to the shared library",
         "exercise": false,
         "id": "ss-1781018219061"
       },
       {
         "title": "Task expansion in practice",
         "summary": "Test and fix potion shop",
-        "details": "",
+        "details": "- Potion shop exercise: test and fix a known buggy application end-to-end\n- From finding a bug to raising a PR with both the fix and a locking test\n- Using agents to parallelize test execution across areas\n- Measuring task expansion: what a single human+agent team can actually achieve\n- Reflection: what required human judgment vs. what the agent handled autonomously",
         "exercise": true,
         "id": "ss-1781018448999"
       },
@@ -326,7 +326,7 @@
       {
         "title": "Intent to build apps",
         "summary": "Wish from the generator, does your wish bring about useful?",
-        "details": "",
+        "details": "- Starting from a wish: what problem does this tool actually solve?\n- Describing intent well enough for AI to generate a useful scaffold\n- Understanding the gap between 'it runs' and 'it is useful'\n- Iterating on generated code: what to accept, what to redirect, what to discard\n- From prototype to something you would actually share with a colleague\n- Recognizing when vibe coding is the wrong tool and you need a real spec",
         "exercise": false,
         "starred": false,
         "id": "ss-1781020461006"
@@ -342,7 +342,7 @@
       {
         "title": "From vibe coding to AI native development",
         "summary": "Spec-driven frameworks",
-        "details": "",
+        "details": "- Vibe coding: iterating with natural language until it works, fast but fragile\n- AI native development: spec-driven, context-engineered, agent-executed\n- Spec-driven frameworks: requirements as the primary source of truth\n- CLAUDE.md and project context files as first-class engineering artifacts\n- The human role in AI native workflows: direction, judgment, and verification\n- Quality considerations: testing AI-generated code needs the same rigor as hand-written code",
         "exercise": false,
         "id": "ss-1781018614616"
       }
@@ -356,42 +356,42 @@
     "sightseeings": [
       {
         "title": "Layered architectures and testability",
-        "summary": "",
-        "details": "",
+        "summary": "Understanding test strategy across architecture layers",
+        "details": "- Presentation, business logic, data layers and their seams\n- Testing at each layer: UI, API, service, unit — and the trade-offs\n- Dependency injection and testability design: seams enable control\n- Contract testing between layers to catch integration breaks early\n- Where mocks help and where they mask real integration failures\n- Architecture diagrams as test strategy maps: risk lives at the boundaries",
         "id": "ss-1781011588571"
       },
       {
         "title": "Cloud as someone else's computer",
         "summary": "With someone else's rules and defaults",
-        "details": "",
+        "details": "- Shared responsibility model: what the cloud provider owns vs. what you own\n- Default configurations are often insecure — know what you inherit\n- IAM, roles, and least-privilege: test environments need their own identities\n- Cloud-specific failure modes: rate limits, regional outages, eventual consistency\n- Infrastructure as code: your infrastructure config is also testable\n- Cost awareness: testing in the cloud has a bill attached",
         "exercise": false,
         "id": "ss-1781018019375"
       },
       {
         "title": "Ephemeral test environments",
         "summary": "Setting up a separate test for every change of relevance",
-        "details": "",
+        "details": "- One environment per PR: containers, feature flags, or full stacks spun per branch\n- Benefits: no test pollution between changes, parallel testing, always clean state\n- GitHub Actions and ArgoCD for automated environment lifecycle management\n- Docker Compose for local ephemeral stacks\n- Cost management: environments that spin up on push and down on merge\n- Data seeding strategies: how to get useful state in a fresh environment fast",
         "exercise": false,
         "id": "ss-1781018044485"
       },
       {
         "title": "Engineering environments with data",
         "summary": "Stop with the test environment, start with the shared environment.",
-        "details": "",
+        "details": "- Why 'test environment' is a dangerous mental model — it implies isolation that rarely exists\n- Environments as a spectrum: local, PR, integration, staging, production\n- Shared environments and data conflicts: test isolation as a first-class concern\n- Synthetic data generation for realistic but safe test data\n- Data masking and anonymization for production-like data in lower environments\n- Environment parity: closing the gap between staging and production is a quality strategy",
         "exercise": false,
         "id": "ss-1781018084637"
       },
       {
         "title": "Testing systems with AI",
         "summary": "What if LLMs make up a part of your system?",
-        "details": "",
+        "details": "- LLM-based systems: non-determinism means same input can yield different output\n- Testing for correctness, safety, alignment, and behavior under adversarial inputs\n- Evaluation frameworks: LLM-as-judge, golden datasets, human review loops\n- Regression testing for model updates and prompt changes\n- Prompt injection and context poisoning as testable security risks\n- Monitoring production AI behavior as a continuous form of testing",
         "exercise": false,
         "id": "ss-1781018377860"
       },
       {
         "title": "Architecture-awareness and lifecycle view",
         "summary": "Test the rabbit",
-        "details": "",
+        "details": "- Rabbit exercise: map the architecture of a given system from the outside in\n- Identify: components, integrations, data flows, trust boundaries\n- Derive: risk areas and testing priorities from the architecture map\n- Lifecycle view: testing across build, deploy, run, and retire phases\n- From architecture diagram to test strategy in one conversation\n- Spotting testability gaps: what the architecture makes hard to test",
         "exercise": true,
         "id": "ss-1781018565638"
       },
@@ -406,7 +406,7 @@
       {
         "title": "Backend Fundamentals",
         "summary": "REST and others",
-        "details": "",
+        "details": "- REST APIs: methods, status codes, headers, authentication patterns\n- GraphQL: queries, mutations, schema — different testing surface than REST\n- gRPC and asynchronous messaging: queues, events, and eventual consistency\n- Databases: SQL basics, query patterns, transactions, and isolation levels\n- Authentication: OAuth2, JWT, API keys — how to test each without hardcoding credentials\n- API contracts and versioning: catching breaking changes before they break consumers",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022677109"
@@ -414,7 +414,7 @@
       {
         "title": "Mobile and Windows, Embedded Applications",
         "summary": "It's not all web.",
-        "details": "",
+        "details": "- Mobile testing: iOS, Android, device fragmentation, OS upgrade risk\n- Mobile-specific risks: network conditions, battery, permissions, background behavior\n- Windows application testing: WinUI, legacy Win32, Electron-wrapped web apps\n- Embedded systems: limited resources, hardware dependencies, deterministic timing\n- Appium and platform-specific frameworks for automation\n- Simulators vs. real devices: what each can and cannot tell you",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022993035"
@@ -436,7 +436,7 @@
       {
         "title": "Making lightweight plans",
         "summary": "Concise plans, and working with backlogs for testing.",
-        "details": "",
+        "details": "- One-page test strategy: what, why, scope, risks, approach — nothing more\n- Working with backlogs: test tasks as user stories with acceptance criteria\n- Just-enough planning: enough to start, flexible enough to adapt as you learn\n- Risk registers as living test plans: update them as the system changes\n- Timeboxed planning: how much plan is proportionate to how much work\n- Signals and levers: identifying what you can actually change vs. what you report on",
         "id": "ss-1781017042500"
       }
     ]
@@ -449,21 +449,21 @@
       {
         "title": "Telemetry",
         "summary": "Sending information about use, test vs. production",
-        "details": "",
+        "details": "- What telemetry is: events, traces, metrics, logs — and how they differ\n- Sending telemetry from test runs vs. from production users\n- OpenTelemetry as the standard protocol for instrumentation\n- Separating test traffic from real user traffic in shared dashboards\n- Using production telemetry to validate that features are actually used\n- Alerting on telemetry anomalies as a quality signal",
         "exercise": false,
         "id": "ss-1781017785528"
       },
       {
         "title": "Visualizing real-time status",
         "summary": "Make it visual - builds and systems",
-        "details": "",
+        "details": "- Build dashboards: pipeline health, pass/fail rates, flaky test trends over time\n- System dashboards: uptime, error rates, latency percentiles\n- Grafana, DataDog, and cloud-native monitoring as quality tools\n- Team radiators: always-visible quality signals on a shared screen\n- Connecting test results to monitoring dashboards for a unified view\n- Alert fatigue: fewer, higher-signal alerts beat many low-value ones",
         "exercise": false,
         "id": "ss-1781017832397"
       },
       {
         "title": "Token optimization and FinOps",
         "summary": "Seeing what AI costs for value generation",
-        "details": "",
+        "details": "- Token counting: input, output, and context window costs are all billable\n- Prompt caching and its impact on cost at scale\n- Cost per test run with AI-assisted automation: is the value worth the spend?\n- FinOps principles: visibility first, then optimization, then accountability\n- Setting cost budgets for AI testing tools at team and project level\n- Balancing AI quality gains against token spend — not all uses are worth it",
         "exercise": false,
         "id": "ss-1781017977825"
       }
@@ -477,7 +477,7 @@
       {
         "title": "Performance, security and reliability",
         "summary": "Know the system scale features",
-        "details": "",
+        "details": "- Performance testing types: load (normal), stress (peak), soak (sustained), spike (sudden)\n- Security testing basics: OWASP Top 10, threat modeling, attack surface analysis\n- Reliability: MTTR, MTBF, SLAs and SLOs as testable acceptance criteria\n- Chaos engineering: deliberately breaking systems to find weaknesses before users do\n- Shift-left for non-functional requirements: define them before build, not after\n- Parafunctional requirements written as acceptance criteria the same as functional ones",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022279127"
@@ -485,7 +485,7 @@
       {
         "title": "Usability and accessibility",
         "summary": "Know the friction and compliance",
-        "details": "",
+        "details": "- Usability heuristics: Nielsen's 10 principles as a lightweight review checklist\n- Cognitive load and friction: where users slow down or give up\n- Accessibility standards: WCAG 2.1 AA as the baseline compliance target\n- Screen readers, keyboard navigation, color contrast as concrete test dimensions\n- Automated scanning finds about 30% of accessibility issues — manual testing covers the rest\n- Inclusive design: designing for extremes serves everyone better",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022290672"
@@ -493,7 +493,7 @@
       {
         "title": "Financial and legal",
         "summary": "Know the value and risks",
-        "details": "",
+        "details": "- Financial risk: billing bugs, rounding errors, currency handling, negative amounts\n- Regulatory compliance: GDPR, PCI-DSS, SOC2, ISO 27001 as testing scope drivers\n- License compliance: open source obligations that arise from your component choices\n- Audit trails: what the system must log to satisfy legal and contractual obligations\n- Contract testing: does the system actually meet its stated legal commitments?\n- Risk quantification: translating defects into financial exposure to drive prioritization",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022313540"
@@ -507,24 +507,24 @@
     "sightseeings": [
       {
         "title": "Agile, incremental, waterfall",
-        "summary": "",
-        "details": "",
+        "summary": "How process shapes when and how testing happens",
+        "details": "- Waterfall: testing as a phase, handoff model, late and expensive feedback loops\n- Agile/Scrum: testing within sprints, definition of done as the quality gate\n- Continuous delivery: testing embedded in the pipeline, not scheduled after it\n- Incremental delivery: testing each increment independently before building the next\n- Context-dependent: no single process fits all teams, products, or risk profiles\n- The tester's role and leverage shifts significantly with each process model",
         "exercise": false,
         "starred": false,
         "id": "ss-1781023099036"
       },
       {
         "title": "Retrospectives and test improvement",
-        "summary": "",
-        "details": "",
+        "summary": "Using reflection to improve quality practices",
+        "details": "- Retrospective formats: 4Ls, Start/Stop/Continue, timeline — pick the one that fits\n- Identifying quality-related impediments as first-class retro topics\n- Tracking escaped defects and near-misses as improvement fuel\n- Setting measurable improvement goals: not 'test more' but 'reduce escape rate by X'\n- Quality metrics to review: defect escape rate, cycle time, test coverage, flaky test count\n- Blameless culture as a precondition for honest retrospectives on quality failures",
         "exercise": false,
         "starred": false,
         "id": "ss-1781023110166"
       },
       {
         "title": "Examples (TDD, BDD)  and experiments",
-        "summary": "",
-        "details": "",
+        "summary": "Using examples to drive development and validate behavior",
+        "details": "- TDD: test-first development, red-green-refactor — the test defines the contract\n- BDD: behavior-driven development, Gherkin syntax, specifications as living documentation\n- Example mapping: structured conversation to discover scenarios before writing code\n- Examples as shared understanding tools, not just test scripts\n- Experiments: hypothesis, measure, learn loop applied to testing decisions\n- When TDD/BDD pays off and when it is overhead: context determines value",
         "exercise": false,
         "starred": false,
         "id": "ss-1781023148555"
@@ -599,8 +599,8 @@
       },
       {
         "title": "Key MCPs: Playwright, Rovo, Figma",
-        "summary": "",
-        "details": "",
+        "summary": "Model Context Protocol plugins that extend AI testing capabilities",
+        "details": "- MCP: the protocol for giving AI agents structured access to tools and context\n- Playwright MCP: browser automation and visual inspection available to agents\n- Rovo MCP: Atlassian ecosystem integration — Jira issues, Confluence pages as agent context\n- Figma MCP: design spec access for visual regression and design-to-implementation testing\n- Composing MCPs: combining multiple tools in a single agent session\n- Writing your own MCP: packaging a custom tool as an agent-callable plugin",
         "exercise": false,
         "starred": false,
         "id": "ss-1781023496550"
@@ -625,16 +625,16 @@
       },
       {
         "title": "Repo hosting services: Github, Gitlab, ADO",
-        "summary": "",
-        "details": "",
+        "summary": "Where code lives and collaboration happens",
+        "details": "- GitHub: Issues, Actions, Pages, Codespaces, Copilot — the dominant ecosystem\n- GitLab: built-in CI/CD pipelines, container registry, environments in one platform\n- Azure DevOps (ADO): Boards, Pipelines, Repos, Test Plans for Microsoft-stack clients\n- Choosing based on ecosystem: what the client already uses often decides the answer\n- Cross-platform skill: git is universal, the hosting wrapper varies — learn both layers\n- Security controls: branch protection, CODEOWNERS, required reviews, signed commits",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022479309"
       },
       {
         "title": "CI/CD: Jenkins, Github Actions, ADO",
-        "summary": "",
-        "details": "",
+        "summary": "Automating the path from commit to production",
+        "details": "- Continuous integration: every push triggers build and tests — fast feedback\n- Continuous delivery/deployment: automated, reliable path from commit to production\n- Jenkins: server-based, plugin-heavy, Jenkinsfile declarative pipelines\n- GitHub Actions: workflow YAML, marketplace actions, matrix builds, runner types\n- ADO Pipelines: YAML or classic editor, tight Azure integration\n- Key testing integration points: test result publishing, artifact storage, failure notifications",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022148806"
@@ -648,24 +648,24 @@
       },
       {
         "title": "Accessibility: Lighthouse and aXe",
-        "summary": "",
-        "details": "",
+        "summary": "Automated tooling for accessibility coverage",
+        "details": "- Lighthouse: automated scoring for accessibility, performance, SEO, and best practices\n- aXe: WCAG-mapped rule engine available as browser extension and as an API\n- Integration with Playwright: axe-playwright for accessibility checks in CI\n- Interpreting results: which violations are critical vs. advisory, and how to triage\n- Manual checks that automation cannot replace: focus management, screen reader flow, meaningful alt text\n- Accessibility as a code quality signal: bad accessibility often points to bad structure",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022719631"
       },
       {
         "title": "Security:  Threat modeling and Burbsuite",
-        "summary": "",
-        "details": "",
+        "summary": "Structured thinking and active tooling for security testing",
+        "details": "- Threat modeling: STRIDE framework, attack trees, data flow diagrams\n- Identifying trust boundaries and threat actors before writing a test\n- Burp Suite: intercepting proxy, active scanner, repeater for manual web app testing\n- OWASP ZAP as an open source alternative with CI integration\n- Common web vulnerabilities to test: injection, broken auth, IDOR, XSS, CSRF\n- Security testing in CI: DAST for running apps, SAST for code scanning",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022755821"
       },
       {
         "title": "Performance: Jmeter and cloud scaling",
-        "summary": "",
-        "details": "",
+        "summary": "Measuring system behavior under load",
+        "details": "- JMeter: test plans, thread groups, samplers, listeners — the core concepts\n- Performance metrics: throughput, latency percentiles (p50, p95, p99), error rate\n- Cloud-based load generation: scaling beyond what a single machine can produce\n- Interpreting results: finding the breaking point vs. the safe operating envelope\n- Performance budgets: acceptable thresholds defined as acceptance criteria upfront\n- Cloud auto-scaling: test both the application and the scaling behavior under load",
         "exercise": false,
         "starred": false,
         "id": "ss-1781022792141"
@@ -673,7 +673,7 @@
       {
         "title": "Certified Modern Testing Talent",
         "summary": "CGI certifications for the modern age",
-        "details": "",
+        "details": "- CGI certification path for the AI era of quality engineering\n- Skills assessed: context engineering, agent orchestration, quality leadership\n- Practical demonstration over written examination: show, don't just describe\n- Portfolio as evidence: PRs, pipelines, test strategies, and tools built\n- Renewal cadence: keeping pace with tooling evolution in the AI era\n- Recognition: internal mobility and client credibility backed by demonstrated skill",
         "exercise": false,
         "starred": true,
         "id": "ss-1781020062497"
@@ -696,7 +696,7 @@
       {
         "title": "Property-based testing",
         "summary": "Generating tests against properties",
-        "details": "",
+        "details": "- Generate many random inputs automatically and let the framework find edge cases\n- A property is an invariant that must always hold, not a specific example\n- Hypothesis (Python) and fast-check (JavaScript/TypeScript) as primary frameworks\n- Shrinking: the framework finds the minimal failing input automatically\n- Combining with AI: generating domain-relevant custom generators\n- Best fit: pure functions, data transformations, protocol compliance, encoding round-trips",
         "exercise": false,
         "starred": false,
         "id": "ss-1781021208385"
@@ -704,7 +704,7 @@
       {
         "title": "Mutation testing",
         "summary": "Testing the tests",
-        "details": "",
+        "details": "- A mutant is a code change that should cause at least one test to fail\n- Mutation score: what percentage of mutants did the test suite kill?\n- Tools: Pitest (Java), Mutmut (Python), Stryker (JS/TS)\n- The key insight: code coverage lets many mutants survive; mutation testing catches them\n- Practical use: find weak assertions, missing branches, and under-tested logic\n- Cost: computationally expensive — run on critical or high-risk modules, not everything",
         "exercise": false,
         "starred": false,
         "id": "ss-1781021221535"
