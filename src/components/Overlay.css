@@ -58,6 +58,17 @@
   border-radius: 4px;
 }
 
+.star-tag {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  background: #FF69B4;
+  color: #1a0510;
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+}
+
 .overlay-title {
   font-size: 1.15rem;
   font-weight: 700;

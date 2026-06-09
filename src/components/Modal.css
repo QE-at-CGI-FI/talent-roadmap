@@ -145,6 +145,12 @@
   color: var(--text) !important;
 }
 
+.flag-row {
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
 .modal-actions {
   display: flex;
   justify-content: flex-end;

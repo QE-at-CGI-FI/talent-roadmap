@@ -20,6 +20,7 @@ export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
             <div className="overlay-title-row">
               <h2 className="overlay-title">{sightseeing.title}</h2>
               {sightseeing.exercise && <span className="exercise-tag">exercise</span>}
+              {sightseeing.starred && <span className="star-tag">★ starred</span>}
             </div>
           </div>
           <div className="overlay-header-actions">

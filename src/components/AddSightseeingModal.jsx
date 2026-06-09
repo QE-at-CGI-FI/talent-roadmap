@@ -7,6 +7,7 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
   const [summary, setSummary] = useState(existing?.summary ?? '')
   const [details, setDetails] = useState(existing?.details ?? '')
   const [exercise, setExercise] = useState(existing?.exercise ?? false)
+  const [starred, setStarred] = useState(existing?.starred ?? false)
 
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onClose() }
@@ -18,8 +19,8 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
     e.preventDefault()
     if (!title.trim()) return
     onSave(existing
-      ? { ...existing, title: title.trim(), summary: summary.trim(), details: details.trim(), exercise }
-      : { title: title.trim(), summary: summary.trim(), details: details.trim(), exercise }
+      ? { ...existing, title: title.trim(), summary: summary.trim(), details: details.trim(), exercise, starred }
+      : { title: title.trim(), summary: summary.trim(), details: details.trim(), exercise, starred }
     )
   }
 
@@ -59,14 +60,16 @@ export default function AddSightseeingModal({ existing, onSave, onClose }) {
               rows={6}
             />
           </label>
-          <label className="exercise-label">
-            <input
-              type="checkbox"
-              checked={exercise}
-              onChange={(e) => setExercise(e.target.checked)}
-            />
-            <span>Has exercise <small style={{color:'var(--text-muted)'}}>— highlights in yellow</small></span>
-          </label>
+          <div className="flag-row">
+            <label className="exercise-label">
+              <input type="checkbox" checked={exercise} onChange={(e) => setExercise(e.target.checked)} />
+              <span>Exercise <small style={{color:'var(--text-muted)'}}>— yellow</small></span>
+            </label>
+            <label className="exercise-label">
+              <input type="checkbox" checked={starred} onChange={(e) => setStarred(e.target.checked)} style={{ accentColor: '#FF69B4' }} />
+              <span>★ Star badge <small style={{color:'var(--text-muted)'}}>— pink</small></span>
+            </label>
+          </div>
           <div className="modal-actions">
             <button type="button" className="btn-secondary" onClick={onClose}>Cancel</button>
             <button type="submit" className="btn-primary" disabled={!title.trim()}>

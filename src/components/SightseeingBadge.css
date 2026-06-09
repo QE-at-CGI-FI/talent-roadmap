@@ -24,6 +24,23 @@
   background: #221c00;
 }
 
+.ss-starred {
+  border-color: #6b1a3a;
+  background: #1a0510;
+}
+
+.ss-starred:hover {
+  background: #220815;
+}
+
+.ss-star {
+  color: #FF69B4;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  line-height: 1;
+  margin-top: 1px;
+}
+
 .ss-badge:hover .ss-delete { opacity: 1; }
 
 .ss-grip {
