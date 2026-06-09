@@ -1,0 +1,437 @@
+[
+  {
+    "title": "The bare fun-damentals",
+    "summary": "What is testing? For whom?",
+    "color": "#E8001C",
+    "id": "stop-1781012600336",
+    "sightseeings": [
+      {
+        "title": "Software change with 2nd pair of eyes",
+        "summary": "Splitting the layers of testing for 1st and 2nd pair of eyes",
+        "details": "- You change it, you test it\n- You change it, someone else reviews and tests it\n- Step back to a black box for unintended limitations and consequences",
+        "id": "ss-1781013523905"
+      },
+      {
+        "title": "Intake scopes",
+        "summary": "Information to enrich with testing",
+        "details": "- Domain and system \n- Feature (a scoped group of changes of value to user)\n- Individual changes\n- Change outside the code",
+        "id": "ss-1781013647558"
+      },
+      {
+        "title": "Value and waste",
+        "summary": "Forms of lean waste in testing",
+        "details": "- Forms of lean waste, and how the way we organize for testing contributes\n- Forms of lean value, and how the way we collaborate enables it",
+        "id": "ss-1781013754397"
+      },
+      {
+        "title": "Testing, debugging and fixing",
+        "summary": "The division of knowledge without task expansion",
+        "details": "- Testing\n- Debugging\n- Fixing",
+        "id": "ss-1781013843366"
+      },
+      {
+        "title": "Domain expertise",
+        "summary": "Recognizing incomplete beyond specifications",
+        "details": "- Learning the domain for testing\n- Useful specifications over complete specifications\n- Specs as socializing knowledge",
+        "id": "ss-1781013971838"
+      },
+      {
+        "title": "Artifacts vs. performance",
+        "summary": "Results from performance, evolving artifacts",
+        "details": "- Evolving artifacts\n- Results from performance",
+        "id": "ss-1781017156841"
+      }
+    ]
+  },
+  {
+    "id": "stop-1",
+    "title": "Git-first mindset",
+    "summary": "Version control as the backbone of all work",
+    "color": "#6B2FA0",
+    "sightseeings": [
+      {
+        "id": "ss-1-1",
+        "title": "Commits & PRs",
+        "summary": "Atomic commits, meaningful messages, pull request etiquette",
+        "details": "A git-first mindset starts with understanding commits as snapshots of intent, not just saves.\n\n• Write commits that tell a story — each one should answer \"why\"\n• Open pull requests as a communication tool, not just a merge mechanism\n• Review PRs as collaborative quality gates, not gatekeeping\n• Use draft PRs to share work-in-progress and gather early feedback"
+      },
+      {
+        "id": "ss-1-2",
+        "title": "Cloning & Forking",
+        "summary": "Working with repositories locally and contributing upstream",
+        "details": "Understanding the difference between cloning and forking unlocks how open-source and inner-source collaboration works.\n\n• Clone: get a full local copy of a repo you have direct access to\n• Fork: create your own copy of someone else's repo to propose changes\n• Set upstream remotes to stay in sync with the origin\n• Know when to branch vs. when to fork"
+      },
+      {
+        "id": "ss-1-3",
+        "title": "Merge Strategies",
+        "summary": "Merge commits, squash, rebase — choosing the right strategy",
+        "details": "How you integrate changes shapes the history and the team's ability to understand evolution.\n\n• Merge commit: preserves full branch history, clear but can be noisy\n• Squash merge: collapses a branch into one clean commit on main\n• Rebase: rewrites commits on top of main — linear history, requires discipline\n• Understand fast-forward vs. three-way merges\n• Team conventions matter more than the \"best\" strategy"
+      }
+    ]
+  },
+  {
+    "title": "Coverage",
+    "summary": "It's more than risks, requirements or code.",
+    "id": "stop-1781017610667",
+    "sightseeings": [
+      {
+        "title": "Risks, requirements and code",
+        "summary": "The foundational coverage.",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017628243"
+      },
+      {
+        "title": "Practice coverage",
+        "summary": "Your adherence to agreements",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017659453"
+      },
+      {
+        "title": "Coverage for the AI era",
+        "summary": "Code reality and telemetry.",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017725630"
+      }
+    ]
+  },
+  {
+    "title": "Task expansion with AI",
+    "summary": "",
+    "color": "#B0003A",
+    "id": "stop-1781014157552",
+    "sightseeings": [
+      {
+        "title": "Generating locking tests with AI",
+        "summary": "Call it unit or functional, or small. But leave it behind.",
+        "details": "- unit testing\n- api testing\n- UI with mocks testing\n- property-based testing\n- pipelines",
+        "id": "ss-1781014386385"
+      },
+      {
+        "title": "End-to-end testing as synthetic monitoring",
+        "summary": "Pieces make a whole. We monitor the whole.",
+        "details": "- Shift down\n- Minimizing end-to-end testing",
+        "id": "ss-1781014480389"
+      },
+      {
+        "title": "Shift-left: socializing requirements",
+        "summary": "Understanding over specifying",
+        "details": "- Documentation for people and for AI\n- Improving team information intake\n- Shared acceptance criteria and specs",
+        "id": "ss-1781014572641"
+      },
+      {
+        "title": "Reporting need of fixes with fixes",
+        "summary": "A PR with tests wins over a report.",
+        "details": "- Pairing on a fix (with humans/agents) and delivering PRs with tests and fixes as reports\n- Modern change advisory boards teach rules to distribute decisions",
+        "id": "ss-1781014703036"
+      }
+    ]
+  },
+  {
+    "title": "Resultsful exploratory testing",
+    "summary": "",
+    "color": "#E8001C",
+    "id": "stop-1781012563826",
+    "sightseeings": [
+      {
+        "title": "Seeing problems and conversation starters",
+        "summary": "Results coverage of examples of risks realized matters.",
+        "details": "- See problems in simple targets\n- Consistently using any tools necessary as constraints that enable your focus",
+        "id": "ss-1781014843881",
+        "exercise": true
+      },
+      {
+        "title": "Stop-the-line mentality",
+        "summary": "Culture change for making bugs more worth attention",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018691244"
+      }
+    ]
+  },
+  {
+    "title": "Intentional exploratory testing",
+    "summary": "",
+    "color": "#6B2FA0",
+    "id": "stop-1781011230329",
+    "sightseeings": [
+      {
+        "title": "Deliberate practice of 4x Intent",
+        "summary": "Tracking mission, charter, details and future.",
+        "details": "- the A4 practice tool\n- AI adaptations of note taking",
+        "id": "ss-1781015101054"
+      },
+      {
+        "title": "Strong-style navigation",
+        "summary": "Intentionality in navigation from ensemble working",
+        "details": "- Strong-style navigation with people and agents\n- Improving your intent\n- Descriptive and prescriptive",
+        "id": "ss-1781015256447"
+      }
+    ]
+  },
+  {
+    "title": "Contemporary exploratory testing",
+    "summary": "",
+    "color": "#B0003A",
+    "id": "stop-1781011251365",
+    "sightseeings": [
+      {
+        "title": "Documenting with automation",
+        "summary": "Automation in frame of exploratory testing",
+        "details": "- Grow what developers built\n- Four purposes of programmatic tests for exploring",
+        "exercise": false,
+        "id": "ss-1781017325859"
+      },
+      {
+        "title": "Agency for decisions",
+        "summary": "Grow your decision-making muscle",
+        "details": "- Decisions about what to report\n- Decisions about what to do first\n- Decisions about what to leave out",
+        "exercise": false,
+        "id": "ss-1781017385826"
+      }
+    ]
+  },
+  {
+    "title": "Artifact-centric AI for testing",
+    "summary": "",
+    "color": "#8A1AC8",
+    "id": "stop-1781011276080",
+    "sightseeings": [
+      {
+        "title": "Generating test ideas",
+        "summary": "AI as external imagination",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017430169"
+      },
+      {
+        "title": "Generating test cases",
+        "summary": "If you really need to, better be efficient about it",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017451679"
+      },
+      {
+        "title": "Generating test automation",
+        "summary": "Special tips for automation",
+        "details": "- Automation first -approach",
+        "exercise": false,
+        "id": "ss-1781017497705"
+      },
+      {
+        "title": "Evolving artifacts",
+        "summary": "What you really want to do is evolving artifacts.",
+        "details": "- Testability in test targets\n- Test ideas with risk and empirical setup\n- Historical records\n- Repeatability assets, particularly pipelines and test automation\n- Information to react on, bugs, change requests, conversation starters\n- Test coverage outlines\n- Information to intake, questions, things that make work harder\n- Test data\n- Test tools\n- Test strategy as ideas that guide our test design\n- Test infrastructure and practices\n- Test estimation\n- Test narrative, of testing done so far\n- Stakeholder relations\n- Visibility, reporting and chartering forward",
+        "exercise": false,
+        "id": "ss-1781017550026"
+      },
+      {
+        "title": "Requirements-based testing",
+        "summary": "Test the ATM",
+        "details": "",
+        "exercise": true,
+        "id": "ss-1781018497531"
+      }
+    ]
+  },
+  {
+    "title": "Performance-centric AI for testing",
+    "summary": "",
+    "color": "#C0003A",
+    "id": "stop-1781011293181",
+    "sightseeings": [
+      {
+        "title": "Playwright and Vibium as eyes/hands on browser",
+        "summary": "AI can act for you, like you would",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018185155"
+      },
+      {
+        "title": "CGI Test Intelligence Mesh",
+        "summary": "Plugins of agents and skills for testing",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018219061"
+      },
+      {
+        "title": "Task expansion in practice",
+        "summary": "Test and fix potion shop",
+        "details": "",
+        "exercise": true,
+        "id": "ss-1781018448999"
+      }
+    ]
+  },
+  {
+    "title": "Vibe coding test visualizations",
+    "summary": "Programming is a superpower for you",
+    "id": "stop-1781018289021",
+    "sightseeings": [
+      {
+        "title": "Vibe coding",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018363919"
+      },
+      {
+        "title": "From vibe coding to AI native development",
+        "summary": "Spec-driven frameworks",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018614616"
+      }
+    ]
+  },
+  {
+    "title": "Architecture-awareness",
+    "summary": "",
+    "color": "#5A1080",
+    "id": "stop-1781011487012",
+    "sightseeings": [
+      {
+        "title": "Layered architectures and testability",
+        "summary": "",
+        "details": "",
+        "id": "ss-1781011588571"
+      },
+      {
+        "title": "Cloud as someone else's computer",
+        "summary": "With someone else's rules and defaults",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018019375"
+      },
+      {
+        "title": "Ephemeral test environments",
+        "summary": "Setting up a separate test for every change of relevance",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018044485"
+      },
+      {
+        "title": "Engineering environments with data",
+        "summary": "Stop with the test environment, start with the shared environment.",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018084637"
+      },
+      {
+        "title": "Testing systems with AI",
+        "summary": "What if LLMs make up a part of your system?",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781018377860"
+      },
+      {
+        "title": "Architecture-awareness and lifecycle view",
+        "summary": "Test the rabbit",
+        "details": "",
+        "exercise": true,
+        "id": "ss-1781018565638"
+      }
+    ]
+  },
+  {
+    "title": "Sociotechnical systems awareness",
+    "summary": "Modeling the world as a core skill.",
+    "color": "#FF2040",
+    "id": "stop-1781011549588",
+    "sightseeings": [
+      {
+        "title": "Systems thinking tools",
+        "summary": "Modeling systems to focus thinking",
+        "details": "- DSPR\n- More testers, worse quality\n- Signals and levers",
+        "id": "ss-1781016966940"
+      },
+      {
+        "title": "Making lightweight plans",
+        "summary": "Concise plans, and working with backlogs for testing.",
+        "details": "",
+        "id": "ss-1781017042500"
+      }
+    ]
+  },
+  {
+    "title": "Observability",
+    "summary": "Telemetry, logs, metrics and all that.",
+    "id": "stop-1781017750733",
+    "sightseeings": [
+      {
+        "title": "Telemetry",
+        "summary": "Sending information about use, test vs. production",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017785528"
+      },
+      {
+        "title": "Visualizing real-time status",
+        "summary": "Make it visual - builds and systems",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017832397"
+      },
+      {
+        "title": "Token optimization and FinOps",
+        "summary": "Seeing what AI costs for value generation",
+        "details": "",
+        "exercise": false,
+        "id": "ss-1781017977825"
+      }
+    ]
+  },
+  {
+    "title": "Tools of trade",
+    "summary": "The minimized set",
+    "color": "#E8001C",
+    "id": "stop-1781016221806",
+    "sightseeings": [
+      {
+        "title": "WebUI: Playwright",
+        "summary": "Must know one tool.",
+        "details": "- Playwright\n- Playwright MCP and CLI\n- Playwright agents and skills\n- Selenium BiDi and architecture-awareness on CDP\n- Vibium",
+        "id": "ss-1781016266757"
+      },
+      {
+        "title": "APIs: Bruno and Pytest + Requests",
+        "summary": "Must know a low code and code tool.",
+        "details": "- Bruno\n- Pytest + Requests",
+        "id": "ss-1781016287171"
+      },
+      {
+        "title": "AI Harness: Github Copilot",
+        "summary": "Must know one harness.",
+        "details": "- Github Copilot\n- Planning mode, Agentic mode\n- Agents and skills\n- Options: Claude Code, Codex, Kiro",
+        "id": "ss-1781016298662"
+      },
+      {
+        "title": "Diagrams: Mermaid",
+        "summary": "Drawing pictures that are cheaper to read.",
+        "details": "- Mermaid diagrams\n- Archimate\n- Generating documentation from code",
+        "id": "ss-1781016321475"
+      },
+      {
+        "title": "Formatted documents: Markdown",
+        "summary": "From Confluence and Jira to Git First",
+        "details": "- Confluence and Jira (Rovo) MCP\n- Publishing flows",
+        "id": "ss-1781016335820"
+      },
+      {
+        "title": "Local framework: Robot Framework",
+        "summary": "I guess this is worth mention.",
+        "details": "- RF is language, and framework with unified reports\n- Smaller community, worse AI experience",
+        "id": "ss-1781016358032"
+      },
+      {
+        "title": "Local 3rd party components",
+        "summary": "Seeing the lego blocks of the world",
+        "details": "- Memory\n- Compression before LLMs",
+        "exercise": false,
+        "id": "ss-1781017949237"
+      }
+    ]
+  }
+]

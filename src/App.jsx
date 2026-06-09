@@ -11,7 +11,7 @@ import {
   verticalListSortingStrategy,
   arrayMove,
 } from '@dnd-kit/sortable'
-import { initialStops } from './data'
+import defaultStops from '../talent-roadmap.json'
 import RoadStop from './components/RoadStop'
 import RoadPath from './components/RoadPath'
 import Overlay from './components/Overlay'
@@ -31,7 +31,7 @@ function loadStops() {
     const saved = localStorage.getItem(STORAGE_KEY)
     if (saved) return JSON.parse(saved)
   } catch {}
-  return initialStops
+  return defaultStops
 }
 
 export default function App() {
