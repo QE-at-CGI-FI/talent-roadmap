@@ -5,16 +5,16 @@
 }
 
 .app-header {
-  background: #1a1d2e;
-  border-bottom: 1px solid #2d3154;
-  padding: 1.5rem 2rem;
+  background: #111111;
+  border-bottom: 1px solid var(--border);
+  padding: 1rem 2rem;
   position: sticky;
   top: 0;
   z-index: 10;
 }
 
 .header-content {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   display: flex;
   align-items: center;
@@ -22,19 +22,41 @@
   gap: 1rem;
 }
 
+.header-brand {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
+.cgi-logo {
+  height: 28px;
+  width: auto;
+  display: block;
+}
+
+.header-divider {
+  width: 1px;
+  height: 28px;
+  background: var(--border-light);
+}
+
 .app-title {
-  font-size: 1.5rem;
+  font-size: 1.1rem;
   font-weight: 700;
-  background: linear-gradient(135deg, #a78bfa, #60a5fa);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  color: var(--text);
+  letter-spacing: -0.01em;
 }
 
 .app-subtitle {
-  font-size: 0.85rem;
-  color: #64748b;
-  margin-top: 0.2rem;
+  font-size: 0.78rem;
+  color: var(--text-muted);
+  margin-top: 0.15rem;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
 
 .roadmap-container {
@@ -43,7 +65,7 @@
 }
 
 .road-track {
-  max-width: 900px;
+  max-width: 960px;
   margin: 0 auto;
   position: relative;
 }
@@ -53,35 +75,30 @@
   left: 50%;
   top: 0;
   bottom: 0;
-  width: 4px;
-  background: linear-gradient(to bottom, #3d4263, #2d3154);
+  width: 3px;
+  background: linear-gradient(to bottom, var(--cgi-red), var(--cgi-purple));
   transform: translateX(-50%);
   border-radius: 2px;
+  opacity: 0.4;
 }
 
 .empty-road {
   text-align: center;
   padding: 4rem 2rem;
-  color: #64748b;
+  color: var(--text-muted);
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 1.5rem;
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
 .btn-primary {
-  background: linear-gradient(135deg, #6366f1, #8b5cf6);
+  background: var(--cgi-red);
   color: white;
   border: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 8px;
-  font-size: 0.9rem;
+  padding: 0.55rem 1.1rem;
+  border-radius: 6px;
+  font-size: 0.85rem;
   font-weight: 600;
   cursor: pointer;
   transition: opacity 0.15s, transform 0.15s;
@@ -89,23 +106,24 @@
 }
 
 .btn-primary:hover {
-  opacity: 0.9;
+  opacity: 0.88;
   transform: translateY(-1px);
 }
 
 .btn-secondary {
-  background: #1e2235;
-  color: #94a3b8;
-  border: 1px solid #2d3154;
+  background: transparent;
+  color: var(--text-muted);
+  border: 1px solid var(--border-light);
   padding: 0.5rem 1rem;
-  border-radius: 8px;
+  border-radius: 6px;
   font-size: 0.85rem;
   cursor: pointer;
-  transition: background 0.15s;
+  transition: border-color 0.15s, color 0.15s;
 }
 
 .btn-secondary:hover {
-  background: #252840;
+  border-color: var(--text-muted);
+  color: var(--text);
 }
 
 .btn-danger {

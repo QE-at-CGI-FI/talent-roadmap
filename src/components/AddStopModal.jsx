@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react'
 import './Modal.css'
 
 const COLORS = [
-  '#6366f1', '#8b5cf6', '#ec4899', '#f97316',
-  '#10b981', '#0ea5e9', '#f59e0b', '#ef4444',
+  '#E8001C', '#6B2FA0', '#B0003A', '#8A1AC8',
+  '#C0003A', '#5A1080', '#FF2040', '#9B3DD0',
 ]
 
 export default function AddStopModal({ existing, onSave, onClose }) {

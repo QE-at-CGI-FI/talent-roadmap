@@ -115,9 +115,13 @@ export default function App() {
     <div className="app">
       <header className="app-header">
         <div className="header-content">
-          <div>
-            <h1 className="app-title">Modern Testing Talent Roadmap</h1>
-            <p className="app-subtitle">A visual guide to the skills and stops on the journey</p>
+          <div className="header-brand">
+            <img src={`${import.meta.env.BASE_URL}cgi-logo.png`} alt="CGI" className="cgi-logo" />
+            <div className="header-divider" />
+            <div>
+              <h1 className="app-title">Modern Testing Talent Roadmap</h1>
+              <p className="app-subtitle">A visual guide to the skills and stops on the journey</p>
+            </div>
           </div>
           <div className="header-actions">
             <input ref={importRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
