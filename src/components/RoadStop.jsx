@@ -20,8 +20,10 @@ function StopCard({ stop, onEdit, onDelete }) {
   )
 }
 
-function SightseeingsPanel({ stop, onSightseeingClick, onDeleteSightseeing, onAddSightseeing }) {
+function SightseeingsPanel({ stop, onSightseeingClick, onEditSightseeing, onDeleteSightseeing, onAddSightseeing }) {
   const [showAddSS, setShowAddSS] = useState(false)
+  const [editingSS, setEditingSS] = useState(null)
+
   return (
     <div className="sightseeings-list">
       {stop.sightseeings.map((ss) => (
@@ -30,16 +32,26 @@ function SightseeingsPanel({ stop, onSightseeingClick, onDeleteSightseeing, onAd
           ss={ss}
           color={stop.color}
           onClick={() => onSightseeingClick(ss)}
+          onEdit={() => setEditingSS(ss)}
           onDelete={() => onDeleteSightseeing(ss.id)}
         />
       ))}
       <button className="add-ss-btn" onClick={() => setShowAddSS(true)}>
         + Sightseeing
       </button>
+
       {showAddSS && (
         <AddSightseeingModal
           onSave={(ss) => { onAddSightseeing(ss); setShowAddSS(false) }}
           onClose={() => setShowAddSS(false)}
+        />
+      )}
+
+      {editingSS && (
+        <AddSightseeingModal
+          existing={editingSS}
+          onSave={(updated) => { onEditSightseeing(updated); setEditingSS(null) }}
+          onClose={() => setEditingSS(null)}
         />
       )}
     </div>
@@ -53,6 +65,7 @@ export default function RoadStop({
   onEdit,
   onDelete,
   onAddSightseeing,
+  onEditSightseeing,
   onDeleteSightseeing,
 }) {
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({ id: stop.id })
@@ -64,21 +77,23 @@ export default function RoadStop({
     zIndex: isDragging ? 100 : 1,
   }
 
-  // Even: card left, sightseeings right
-  // Odd:  sightseeings left, card right
   const isEven = index % 2 === 0
 
-  const leftContent = isEven
-    ? <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
-    : <SightseeingsPanel stop={stop} onSightseeingClick={onSightseeingClick} onDeleteSightseeing={onDeleteSightseeing} onAddSightseeing={onAddSightseeing} />
+  const ssPanel = (
+    <SightseeingsPanel
+      stop={stop}
+      onSightseeingClick={onSightseeingClick}
+      onEditSightseeing={onEditSightseeing}
+      onDeleteSightseeing={onDeleteSightseeing}
+      onAddSightseeing={onAddSightseeing}
+    />
+  )
 
-  const rightContent = isEven
-    ? <SightseeingsPanel stop={stop} onSightseeingClick={onSightseeingClick} onDeleteSightseeing={onDeleteSightseeing} onAddSightseeing={onAddSightseeing} />
-    : <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
+  const stopCard = <StopCard stop={stop} onEdit={onEdit} onDelete={onDelete} />
 
   return (
     <div ref={setNodeRef} style={style} className="road-stop-row">
-      <div className="stop-panel">{leftContent}</div>
+      <div className="stop-panel">{isEven ? stopCard : ssPanel}</div>
 
       <div className="stop-center">
         <div
@@ -92,7 +107,7 @@ export default function RoadStop({
         </div>
       </div>
 
-      <div className="stop-panel">{rightContent}</div>
+      <div className="stop-panel">{isEven ? ssPanel : stopCard}</div>
     </div>
   )
 }

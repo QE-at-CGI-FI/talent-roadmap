@@ -47,16 +47,33 @@
   text-overflow: ellipsis;
 }
 
-.ss-delete {
+.ss-actions {
+  display: flex;
+  gap: 0.1rem;
+  opacity: 0;
+  transition: opacity 0.15s;
+  flex-shrink: 0;
+}
+
+.ss-badge:hover .ss-actions { opacity: 1; }
+
+.ss-action-btn {
   background: transparent;
   border: none;
   color: var(--text-dim);
   cursor: pointer;
-  font-size: 0.6rem;
-  padding: 0 0.1rem;
-  opacity: 0;
-  transition: opacity 0.15s, color 0.15s;
-  flex-shrink: 0;
+  font-size: 0.7rem;
+  padding: 0.1rem 0.25rem;
+  border-radius: 3px;
+  transition: color 0.15s, background 0.15s;
 }
 
-.ss-delete:hover { color: var(--cgi-red); }
+.ss-action-btn:hover {
+  color: var(--cgi-purple);
+  background: rgba(107, 47, 160, 0.1);
+}
+
+.ss-action-danger:hover {
+  color: var(--cgi-red);
+  background: rgba(232, 0, 28, 0.08);
+}

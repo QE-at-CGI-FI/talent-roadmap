@@ -15,6 +15,7 @@ import { initialStops } from './data'
 import RoadStop from './components/RoadStop'
 import Overlay from './components/Overlay'
 import AddStopModal from './components/AddStopModal'
+import AddSightseeingModal from './components/AddSightseeingModal'
 import './App.css'
 
 const STORAGE_KEY = 'talent-roadmap-stops'
@@ -30,6 +31,7 @@ function loadStops() {
 export default function App() {
   const [stops, setStops] = useState(loadStops)
   const [overlay, setOverlay] = useState(null) // { stop, sightseeing }
+  const [editingSSFromOverlay, setEditingSSFromOverlay] = useState(null) // { stopId, ss }
   const [showAddStop, setShowAddStop] = useState(false)
   const [editingStop, setEditingStop] = useState(null)
   const importRef = useRef(null)
@@ -101,6 +103,16 @@ export default function App() {
     e.target.value = ''
   }
 
+  function updateSightseeing(stopId, updated) {
+    setStops((prev) =>
+      prev.map((s) =>
+        s.id === stopId
+          ? { ...s, sightseeings: s.sightseeings.map((ss) => ss.id === updated.id ? updated : ss) }
+          : s
+      )
+    )
+  }
+
   function deleteSightseeing(stopId, ssId) {
     setStops((prev) =>
       prev.map((s) =>
@@ -147,6 +159,7 @@ export default function App() {
                   onEdit={() => setEditingStop(stop)}
                   onDelete={() => deleteStop(stop.id)}
                   onAddSightseeing={(ss) => addSightseeing(stop.id, ss)}
+                  onEditSightseeing={(ss) => updateSightseeing(stop.id, ss)}
                   onDeleteSightseeing={(ssId) => deleteSightseeing(stop.id, ssId)}
                 />
               ))}
@@ -169,6 +182,15 @@ export default function App() {
           stop={overlay.stop}
           sightseeing={overlay.sightseeing}
           onClose={() => setOverlay(null)}
+          onEdit={() => { setEditingSSFromOverlay({ stopId: overlay.stop.id, ss: overlay.sightseeing }); setOverlay(null) }}
+        />
+      )}
+
+      {editingSSFromOverlay && (
+        <AddSightseeingModal
+          existing={editingSSFromOverlay.ss}
+          onSave={(updated) => { updateSightseeing(editingSSFromOverlay.stopId, updated); setEditingSSFromOverlay(null) }}
+          onClose={() => setEditingSSFromOverlay(null)}
         />
       )}
 

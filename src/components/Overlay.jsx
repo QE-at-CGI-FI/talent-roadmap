@@ -1,7 +1,7 @@
 import { useEffect } from 'react'
 import './Overlay.css'
 
-export default function Overlay({ stop, sightseeing, onClose }) {
+export default function Overlay({ stop, sightseeing, onClose, onEdit }) {
   useEffect(() => {
     function onKey(e) { if (e.key === 'Escape') onClose() }
     document.addEventListener('keydown', onKey)
@@ -18,7 +18,10 @@ export default function Overlay({ stop, sightseeing, onClose }) {
             </div>
             <h2 className="overlay-title">{sightseeing.title}</h2>
           </div>
-          <button className="overlay-close" onClick={onClose}>✕</button>
+          <div className="overlay-header-actions">
+            <button className="overlay-edit-btn" onClick={onEdit} title="Edit">✎ Edit</button>
+            <button className="overlay-close" onClick={onClose}>✕</button>
+          </div>
         </div>
         <div className="overlay-body">
           <p className="overlay-summary">{sightseeing.summary}</p>
