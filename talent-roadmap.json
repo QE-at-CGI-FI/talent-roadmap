@@ -73,6 +73,14 @@
         "title": "Merge Strategies",
         "summary": "Merge commits, squash, rebase — choosing the right strategy",
         "details": "How you integrate changes shapes the history and the team's ability to understand evolution.\n\n• Merge commit: preserves full branch history, clear but can be noisy\n• Squash merge: collapses a branch into one clean commit on main\n• Rebase: rewrites commits on top of main — linear history, requires discipline\n• Understand fast-forward vs. three-way merges\n• Team conventions matter more than the \"best\" strategy"
+      },
+      {
+        "title": "Git hygiene: secrets, dependencies and gitignore",
+        "summary": "Managing your environment",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022927444"
       }
     ]
   },
@@ -386,6 +394,30 @@
         "details": "",
         "exercise": true,
         "id": "ss-1781018565638"
+      },
+      {
+        "title": "Frontend fundamentals",
+        "summary": "Knowing dev tools, html, css and the sorts.",
+        "details": "- HTML, CSS, typescript/javascript\n- Dev tools\n- SSR vs. CSR\n- Caching, asynch",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022642976"
+      },
+      {
+        "title": "Backend Fundamentals",
+        "summary": "REST and others",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022677109"
+      },
+      {
+        "title": "Mobile and Windows, Embedded Applications",
+        "summary": "It's not all web.",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022993035"
       }
     ]
   },
@@ -434,6 +466,68 @@
         "details": "",
         "exercise": false,
         "id": "ss-1781017977825"
+      }
+    ]
+  },
+  {
+    "title": "Parafunctional quality perspectives",
+    "summary": "More than functionality",
+    "id": "stop-1781022266329",
+    "sightseeings": [
+      {
+        "title": "Performance, security and reliability",
+        "summary": "Know the system scale features",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022279127"
+      },
+      {
+        "title": "Usability and accessibility",
+        "summary": "Know the friction and compliance",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022290672"
+      },
+      {
+        "title": "Financial and legal",
+        "summary": "Know the value and risks",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022313540"
+      }
+    ]
+  },
+  {
+    "title": "Process, practice and collaboration",
+    "summary": "Logistics of when to show up with information",
+    "id": "stop-1781023057246",
+    "sightseeings": [
+      {
+        "title": "Agile, incremental, waterfall",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781023099036"
+      },
+      {
+        "title": "Retrospectives and test improvement",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781023110166"
+      },
+      {
+        "title": "Examples (TDD, BDD)  and experiments",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781023148555"
       }
     ]
   },
@@ -522,11 +616,51 @@
         "id": "ss-1781016358032"
       },
       {
+        "title": "Repo hosting services: Github, Gitlab, ADO",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022479309"
+      },
+      {
+        "title": "CI/CD: Jenkins, Github Actions, ADO",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022148806"
+      },
+      {
         "title": "Local 3rd party components",
         "summary": "Seeing the lego blocks of the world",
         "details": "- Memory\n- Compression before LLMs",
         "exercise": false,
         "id": "ss-1781017949237"
+      },
+      {
+        "title": "Accessibility: Lighthouse and aXe",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022719631"
+      },
+      {
+        "title": "Security:  Threat modeling and Burbsuite",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022755821"
+      },
+      {
+        "title": "Performance: Jmeter and cloud scaling",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781022792141"
       },
       {
         "title": "Certified Modern Testing Talent",
