@@ -77,6 +77,29 @@
     ]
   },
   {
+    "title": "Permissions and limitations",
+    "summary": "Acknowledge risks and work within agreements",
+    "id": "stop-1781021293519",
+    "sightseeings": [
+      {
+        "title": "From work questions to specs and code to data in envs and secrets",
+        "summary": "Allowances have limits",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781021396214"
+      },
+      {
+        "title": "Data classification in practice with licenses",
+        "summary": "Handing data over under a contract",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781021445851"
+      }
+    ]
+  },
+  {
     "title": "Task expansion with AI",
     "summary": "Ability to do things that you used to need a colleague for.",
     "color": "#B0003A",
@@ -512,6 +535,37 @@
         "exercise": false,
         "starred": true,
         "id": "ss-1781020062497"
+      }
+    ]
+  },
+  {
+    "title": "Shipping tested production code autonomously",
+    "summary": "Dark factory pattern and related test practices",
+    "id": "stop-1781021078919",
+    "sightseeings": [
+      {
+        "title": "From reactive agents to proactive agents and dark factories",
+        "summary": "Risk-based human in the loop",
+        "details": "- Risk-based categorization\n- Working on PRs and ephemeral test environments\n- Orchestrating quality engineering agents to dark factories\n- Vuln patching factory",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781021181574"
+      },
+      {
+        "title": "Property-based testing",
+        "summary": "Generating tests against properties",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781021208385"
+      },
+      {
+        "title": "Mutation testing",
+        "summary": "Testing the tests",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781021221535"
       }
     ]
   }
