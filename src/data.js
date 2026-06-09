@@ -3,7 +3,7 @@ export const initialStops = [
     id: 'stop-1',
     title: 'Git-First Mindset',
     summary: 'Version control as the backbone of all work',
-    color: '#E8001C',
+    color: undefined,
     sightseeings: [
       {
         id: 'ss-1-1',

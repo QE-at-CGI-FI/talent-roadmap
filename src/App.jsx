@@ -71,7 +71,7 @@ export default function App() {
   function addStop(stop) {
     setStops((prev) => [
       ...prev,
-      { ...stop, id: `stop-${Date.now()}`, color: COLORS[prev.length % COLORS.length], sightseeings: [] },
+      { ...stop, id: `stop-${Date.now()}`, sightseeings: [] },
     ])
     setShowAddStop(false)
   }
@@ -168,7 +168,7 @@ export default function App() {
               {stops.map((stop, index) => (
                 <RoadStop
                   key={stop.id}
-                  stop={stop}
+                  stop={{ ...stop, color: COLORS[index % COLORS.length] }}
                   index={index}
                   nodeRef={nodeRefsRef.current[index]}
                   onSightseeingClick={(ss) => setOverlay({ stop, sightseeing: ss })}
