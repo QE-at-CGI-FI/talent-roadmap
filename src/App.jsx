@@ -157,6 +157,17 @@ export default function App() {
               <p className="app-subtitle">A visual guide to the skills and stops on the journey</p>
             </div>
           </div>
+          <div className="header-stats">
+            <span className="stat-item">
+              <span className="stat-number">{stops.length}</span>
+              <span className="stat-label">stops</span>
+            </span>
+            <span className="stat-divider" />
+            <span className="stat-item">
+              <span className="stat-number">{stops.reduce((sum, s) => sum + (s.sightseeings?.length ?? 0), 0)}</span>
+              <span className="stat-label">sightseeings</span>
+            </span>
+          </div>
           <div className="header-actions">
             <input ref={importRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
             <button className="btn-secondary" onClick={() => importRef.current.click()}>Import</button>
