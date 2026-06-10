@@ -12,6 +12,7 @@ import {
   arrayMove,
 } from '@dnd-kit/sortable'
 import defaultStops from '../talent-roadmap.json'
+import condensedStops from '../condensed-talent-roadmap.json'
 import RoadStop from './components/RoadStop'
 import RoadPath from './components/RoadPath'
 import Overlay from './components/Overlay'
@@ -25,17 +26,22 @@ const COLORS = [
 ]
 
 const STORAGE_KEY = 'talent-roadmap-stops'
+const CONDENSED_STORAGE_KEY = 'talent-roadmap-condensed-stops'
+const MODE_KEY = 'talent-roadmap-mode'
 
-function loadStops() {
+function loadStops(mode) {
+  const key = mode === 'condensed' ? CONDENSED_STORAGE_KEY : STORAGE_KEY
+  const defaults = mode === 'condensed' ? condensedStops : defaultStops
   try {
-    const saved = localStorage.getItem(STORAGE_KEY)
+    const saved = localStorage.getItem(key)
     if (saved) return JSON.parse(saved)
   } catch {}
-  return defaultStops
+  return defaults
 }
 
 export default function App() {
-  const [stops, setStops] = useState(loadStops)
+  const [mode, setMode] = useState(() => localStorage.getItem(MODE_KEY) || 'full')
+  const [stops, setStops] = useState(() => loadStops(localStorage.getItem(MODE_KEY) || 'full'))
   const [overlay, setOverlay] = useState(null)
   const [editingSSFromOverlay, setEditingSSFromOverlay] = useState(null)
   const [showAddStop, setShowAddStop] = useState(false)
@@ -50,8 +56,16 @@ export default function App() {
   }
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(stops))
-  }, [stops])
+    const key = mode === 'condensed' ? CONDENSED_STORAGE_KEY : STORAGE_KEY
+    localStorage.setItem(key, JSON.stringify(stops))
+  }, [stops, mode])
+
+  function handleModeToggle() {
+    const next = mode === 'full' ? 'condensed' : 'full'
+    localStorage.setItem(MODE_KEY, next)
+    setMode(next)
+    setStops(loadStops(next))
+  }
 
   const sensors = useSensors(
     useSensor(PointerSensor, { activationConstraint: { distance: 8 } })
@@ -169,6 +183,13 @@ export default function App() {
             </span>
           </div>
           <div className="header-actions">
+            <div className="mode-toggle" onClick={handleModeToggle} title="Switch between full and condensed roadmap">
+              <span className={mode === 'full' ? 'mode-option mode-active' : 'mode-option'}>Full</span>
+              <span className="mode-track">
+                <span className={`mode-thumb ${mode === 'condensed' ? 'mode-thumb-right' : ''}`} />
+              </span>
+              <span className={mode === 'condensed' ? 'mode-option mode-active' : 'mode-option'}>Condensed</span>
+            </div>
             <input ref={importRef} type="file" accept=".json" style={{ display: 'none' }} onChange={handleImport} />
             <button className="btn-secondary" onClick={() => importRef.current.click()}>Import</button>
             <button className="btn-secondary" onClick={handleExport}>Export</button>

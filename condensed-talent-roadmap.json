@@ -1,0 +1,192 @@
+[
+  {
+    "title": "AI governance & permissions",
+    "summary": "Know what you can feed to AI and what you cannot.",
+    "id": "stop-c-1",
+    "sightseeings": [
+      {
+        "title": "Data classification and AI tooling",
+        "summary": "What leaves your laptop matters",
+        "details": "- Public, internal, confidential, restricted: classification limits which AI tools you can use\n- What leaves your laptop: knowing which tools send data to external services\n- AI tools and data governance: check before pasting client code into a chatbot\n- GDPR and data residency: where can test data live?",
+        "id": "ss-c-1-1"
+      },
+      {
+        "title": "Permissions and permanent agreements",
+        "summary": "Authorization to use AI changes behaviors for the whole team",
+        "details": "- Work items, specs and code: IP ownership, confidentiality, and client agreements\n- Secrets in environment variables: what AI tools should never see\n- Permanent agreements: what the team has collectively agreed AI can and cannot do",
+        "id": "ss-c-1-2"
+      }
+    ]
+  },
+  {
+    "title": "Git-first mindset",
+    "summary": "AI works best when you work in git.",
+    "id": "stop-c-2",
+    "sightseeings": [
+      {
+        "title": "Commits & PRs",
+        "summary": "Atomic commits, meaningful messages, pull request etiquette",
+        "details": "- Write commits that tell a story — each one should answer \"why\"\n- Open pull requests as a communication tool, not just a merge mechanism\n- Use draft PRs to share work-in-progress with humans and agents\n- PRs are how AI agents deliver work — you review the same way you review a colleague",
+        "id": "ss-c-2-1"
+      },
+      {
+        "title": "Git hygiene: secrets, dependencies and gitignore",
+        "summary": "Never let AI-generated code skip the basics",
+        "details": "- Never commit secrets: API keys, passwords, tokens, .env files\n- Use pre-commit hooks (git-secrets, trufflehog) to catch secrets before they land\n- AI-generated code needs the same hygiene checks as hand-written code\n- Reviewing staged changes before committing: git diff --staged",
+        "id": "ss-c-2-2"
+      }
+    ]
+  },
+  {
+    "title": "Task expansion with AI",
+    "summary": "Ability to do things you used to need a colleague for.",
+    "id": "stop-c-3",
+    "sightseeings": [
+      {
+        "title": "The task expansion map",
+        "summary": "What changes when AI joins the team",
+        "details": "- from reporting bugs to delivering PRs with tests and fixes\n- from reviewing requirements to active context engineering\n- from functional-only to visual and parafunctional\n- from separating test design and automation to continuous test automation\n- from individual contributor flows to team collaboration at agent scale",
+        "id": "ss-c-3-1"
+      },
+      {
+        "title": "Generating locking tests with AI",
+        "summary": "Leave tests behind, not just reports",
+        "details": "- Unit, API, UI with mocks — generate them, don't write them by hand\n- Property-based testing as AI-natural exploration of edge cases\n- A PR with tests and a fix beats a bug report every time",
+        "id": "ss-c-3-2"
+      },
+      {
+        "title": "Shift-left: context engineering",
+        "summary": "The tester's new value is knowing what information AI needs",
+        "details": "- Documentation for people and for AI: the same artifacts serve both\n- Shared acceptance criteria and specs as AI grounding context\n- Improving team information intake so agents can act on it\n- Useful specs over complete specs — ambiguity is a risk for both humans and agents",
+        "id": "ss-c-3-3"
+      }
+    ]
+  },
+  {
+    "title": "AI as eyes, hands and imagination",
+    "summary": "AI tools as teammates, not search engines.",
+    "id": "stop-c-4",
+    "sightseeings": [
+      {
+        "title": "Playwright and Vibium as eyes/hands on browser",
+        "summary": "AI can act for you, like you would",
+        "details": "- Playwright as browser automation: navigation, clicks, form fills, assertions\n- Playwright MCP: giving AI agents real browser eyes and hands\n- Vibium: visual AI for screenshot comparison and UI layout verification\n- Combining programmatic and visual assertions for richer coverage",
+        "id": "ss-c-4-1"
+      },
+      {
+        "title": "Generating test ideas",
+        "summary": "AI as external imagination to overcome blind spots",
+        "details": "- Prompt patterns for idea generation: persona, domain, risk angle\n- Context injection: give AI the spec, get diverse test angles back\n- Iterating on ideas: steering for quality over quantity\n- Evolving test ideas as living documents, not one-shot outputs",
+        "id": "ss-c-4-2"
+      },
+      {
+        "title": "Task expansion in practice",
+        "summary": "Test and fix the potion shop",
+        "details": "- From finding a bug to raising a PR with both the fix and a locking test\n- Using agents to parallelize test execution across areas\n- Reflection: what required human judgment vs. what the agent handled autonomously",
+        "exercise": true,
+        "id": "ss-c-4-3"
+      }
+    ]
+  },
+  {
+    "title": "From vibe coding to AI-native development",
+    "summary": "Spec-driven, context-engineered, agent-executed.",
+    "id": "stop-c-5",
+    "sightseeings": [
+      {
+        "title": "Vibe coding vs. AI-native development",
+        "summary": "Fast but fragile vs. spec-driven and durable",
+        "details": "- Vibe coding: iterating with natural language until it works — fast but fragile\n- AI native development: spec-driven, context-engineered, agent-executed\n- CLAUDE.md and project context files as first-class engineering artifacts\n- The human role: direction, judgment, and verification — not implementation\n- AI-generated code needs the same testing rigor as hand-written code",
+        "id": "ss-c-5-1"
+      },
+      {
+        "title": "Coverage for the AI era",
+        "summary": "Code reality and telemetry as coverage signals",
+        "details": "- Code reality coverage: what the code actually does vs. what specs describe\n- Telemetry-driven coverage: real user paths inform which tests matter\n- Model behavior coverage: edge cases, adversarial inputs, output drift\n- Prompt coverage: testing the space of inputs an AI system handles\n- Observability as continuous coverage running in production",
+        "id": "ss-c-5-2"
+      }
+    ]
+  },
+  {
+    "title": "Compressed roles for the AI era",
+    "summary": "New job shapes when AI handles the repetitive.",
+    "id": "stop-c-6",
+    "sightseeings": [
+      {
+        "title": "Intent lead",
+        "summary": "Decides what must be learned, protected, proven, or observed.",
+        "details": "- Define quality outcomes, not just features\n- Prioritize risks: regulatory, security, reputation, usability, AI hallucination\n- Define \"done\" beyond functionality: reliable, explainable, observable, resilient\n- Drive production quality KPIs: defect escape rate, AI response accuracy, SLA/SLO adherence",
+        "id": "ss-c-6-1"
+      },
+      {
+        "title": "Context engineer",
+        "summary": "Creates the shared understanding that makes meaningful testing possible.",
+        "details": "- Engineer high-quality prompts and grounding data\n- Validate: prompt consistency, retrieval quality, context relevance, memory limitations\n- Design synthetic and edge-case datasets\n- Prevent: context poisoning, prompt injection, stale knowledge\n- Build traceability between requirements, prompts, outputs, and evaluations",
+        "id": "ss-c-6-2"
+      },
+      {
+        "title": "Alignment engineer",
+        "summary": "Ensures the system stays coherent, trustworthy, and directionally correct.",
+        "details": "- Verify AI behavior aligns with policies, regulations, ethical constraints, brand standards\n- Conduct adversarial testing: jailbreak attempts, prompt injection, malicious inputs\n- Validate: fairness, explainability, auditability\n- Define trust controls: human-in-the-loop, approval workflows, risk thresholds",
+        "id": "ss-c-6-3"
+      },
+      {
+        "title": "Value engineer",
+        "summary": "Continuously experiments to discover whether the system creates value safely.",
+        "details": "- Create continuous evaluation frameworks\n- Validate: correctness, usefulness, consistency\n- Run: A/B experiments, telemetry analysis, behavior-driven evaluations\n- Monitor production drift: model drift, response variance, performance degradation\n- Quantify business impact: reduced effort, accuracy improvements, faster decisions",
+        "id": "ss-c-6-4"
+      }
+    ]
+  },
+  {
+    "title": "AI-native tools of trade",
+    "summary": "The minimum toolkit for AI-native quality engineering.",
+    "id": "stop-c-7",
+    "sightseeings": [
+      {
+        "title": "AI Harness: Github Copilot",
+        "summary": "The orchestration layer for agent work",
+        "details": "- Github Copilot: Planning mode, Agentic mode\n- Agents and skills as reusable quality engineering building blocks\n- Options: Claude Code, Codex, Kiro\n- Key MCPs: Playwright, Rovo, Figma — structured context for agents",
+        "id": "ss-c-7-1"
+      },
+      {
+        "title": "WebUI: Playwright + MCP",
+        "summary": "Browser automation for humans and agents alike",
+        "details": "- Playwright as the browser automation foundation\n- Playwright MCP: giving agents browser control\n- Vibium for visual verification\n- APIs: Bruno and Pytest + Requests as the low-code/code pairing",
+        "id": "ss-c-7-2"
+      },
+      {
+        "title": "Token optimization and FinOps",
+        "summary": "AI has a bill — make it worth it",
+        "details": "- Token counting: input, output, and context window costs are all billable\n- Prompt caching and its impact on cost at scale\n- FinOps principles: visibility first, then optimization, then accountability\n- Setting cost budgets for AI testing tools at team and project level\n- Not all AI uses are worth it — measure value, not just coverage",
+        "id": "ss-c-7-3"
+      }
+    ]
+  },
+  {
+    "title": "Autonomous quality engineering",
+    "summary": "Dark factory pattern: agents ship, humans govern.",
+    "id": "stop-c-8",
+    "sightseeings": [
+      {
+        "title": "From reactive agents to dark factories",
+        "summary": "Risk-based human in the loop",
+        "details": "- Risk-based categorization: what needs human approval vs. what agents can ship autonomously\n- Working on PRs and ephemeral test environments as the agent workspace\n- Orchestrating quality engineering agents into dark factories\n- Vuln patching factory as a concrete dark factory example",
+        "id": "ss-c-8-1"
+      },
+      {
+        "title": "Testing systems with AI components",
+        "summary": "What if LLMs make up a part of your system?",
+        "details": "- LLM-based systems: non-determinism means same input can yield different output\n- Testing for correctness, safety, alignment, and behavior under adversarial inputs\n- Evaluation frameworks: LLM-as-judge, golden datasets, human review loops\n- Regression testing for model updates and prompt changes\n- Monitoring production AI behavior as a continuous form of testing",
+        "id": "ss-c-8-2"
+      },
+      {
+        "title": "Agent-ready Test Professional",
+        "summary": "CGI certifications for the modern age",
+        "details": "Hire with 20 agents!",
+        "starred": true,
+        "id": "ss-c-8-3"
+      }
+    ]
+  }
+]
