@@ -47,6 +47,22 @@
         "summary": "Results from performance, evolving artifacts",
         "details": "- Evolving artifacts\n- Results from performance",
         "id": "ss-1781017156841"
+      },
+      {
+        "title": "Social software engineering and collaboration",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781076396499"
+      },
+      {
+        "title": "Version 1 - Version 2",
+        "summary": "",
+        "details": "",
+        "exercise": true,
+        "starred": false,
+        "id": "ss-1781076140269"
       }
     ]
   },
@@ -104,6 +120,14 @@
         "exercise": false,
         "starred": false,
         "id": "ss-1781021445851"
+      },
+      {
+        "title": "Permissions and permanent agreements",
+        "summary": "Changes in mutual behaviors.",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781067043202"
       }
     ]
   },
@@ -151,6 +175,14 @@
         "exercise": false,
         "starred": false,
         "id": "ss-1781024692188"
+      },
+      {
+        "title": "Reporting bugs without going through test cases",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781077134479"
       }
     ]
   },
@@ -179,6 +211,14 @@
         "details": "- Code reality coverage: what the code actually does vs. what specs describe\n- Telemetry-driven coverage: real user paths inform which tests matter\n- Model behavior coverage: edge cases, adversarial inputs, output drift\n- Prompt coverage: testing the space of inputs an AI system needs to handle\n- Shadow testing and canary releases as live coverage signals\n- Observability as continuous coverage running in production",
         "exercise": false,
         "id": "ss-1781017725630"
+      },
+      {
+        "title": "Vibe coding exploratory testing coverage visualization",
+        "summary": "",
+        "details": "",
+        "exercise": true,
+        "starred": false,
+        "id": "ss-1781077202459"
       }
     ]
   },
@@ -454,6 +494,14 @@
         "exercise": false,
         "starred": false,
         "id": "ss-1781024620019"
+      },
+      {
+        "title": "Risks awareness",
+        "summary": "Targeting efforts based on risks",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781069242640"
       }
     ]
   },
@@ -586,6 +634,14 @@
         "details": "- Validate conversational quality\n- Ensure: clarity, cognitive simplicity, accessibility, responsiveness\n- Test multi-turn interactions\n- Validate confidence indicators and fallback behavior\n- Assess human trust and adoption\n- Ensure graceful degradation when AI confidence is low",
         "exercise": false,
         "id": "ss-1781019222972"
+      },
+      {
+        "title": "Job crafting and task expansion",
+        "summary": "",
+        "details": "",
+        "exercise": false,
+        "starred": false,
+        "id": "ss-1781077640632"
       }
     ]
   },
