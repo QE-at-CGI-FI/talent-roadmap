@@ -60,6 +60,18 @@ export default function App() {
     localStorage.setItem(key, JSON.stringify(stops))
   }, [stops, mode])
 
+  // Safari suspends GPU compositing layers on tab hide; force a repaint on return
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      if (document.visibilityState === 'visible') {
+        document.documentElement.style.transform = 'translateZ(0)'
+        requestAnimationFrame(() => { document.documentElement.style.transform = '' })
+      }
+    }
+    document.addEventListener('visibilitychange', handleVisibilityChange)
+    return () => document.removeEventListener('visibilitychange', handleVisibilityChange)
+  }, [])
+
   function handleModeToggle() {
     const next = mode === 'full' ? 'condensed' : 'full'
     localStorage.setItem(MODE_KEY, next)
